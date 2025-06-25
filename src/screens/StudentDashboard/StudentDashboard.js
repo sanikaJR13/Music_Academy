@@ -31,9 +31,22 @@ export default function StudentDashboard({ navigation }) {
   );
 
   return (
-    <View style={styles.StudentDashboardcontainer}>
-      <Text style={styles.dashboardTitle}>Hi {userName} 👋</Text>
+    
+   <View style={styles.StudentDashboardcontainer}>
+      {/* 🔷 Header */}
+    <View style={styles.customHeader}>
+      <TouchableOpacity onPress={() => console.log('Menu pressed')}>
+        <Icon name="bars" size={20} color="#FFFFFF" />
+      </TouchableOpacity>
+      <Text style={styles.headerTitle}>Music Academy</Text>
+      <TouchableOpacity onPress={() => console.log('Notifications')}>
+        <Icon name="bell" size={20} color="#FFFFFF" />
+      </TouchableOpacity>
+    </View>
+    <View style={styles.StudentDashboardcontainer} >
 
+  
+      <Text style={styles.dashboardTitle}>Hi {userName} 👋</Text>
       <FlatList
         data={dashboardOptions}
         renderItem={renderItem}
@@ -41,7 +54,6 @@ export default function StudentDashboard({ navigation }) {
         numColumns={2}
         contentContainerStyle={styles.dashboardGrid}
       />
-
       <View style={styles.bottomBar}>
         <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Icon name="home" size={22} color="#1E3A8A" />
@@ -49,13 +61,15 @@ export default function StudentDashboard({ navigation }) {
         <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
           <Icon name="user" size={22} color="#1E3A8A" />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
+        {/* <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
           <Icon name="cog" size={22} color="#1E3A8A" />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <TouchableOpacity onPress={() => navigation.navigate('Login')}>
           <Icon name="sign-out-alt" size={22} color="#F97316" />
         </TouchableOpacity>
-      </View>
     </View>
+    </View> 
+     </View>
+    
   );
 }

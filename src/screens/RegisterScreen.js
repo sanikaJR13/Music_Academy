@@ -5,7 +5,6 @@ import {
     TextInput,
     TouchableOpacity,
     Alert,
-
     ScrollView,
     KeyboardAvoidingView,
     Platform,
@@ -13,7 +12,6 @@ import {
 } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import styles from '../styles/universalstyles';
-
 
 export default function RegisterScreen({ navigation }) {
 
@@ -60,9 +58,16 @@ export default function RegisterScreen({ navigation }) {
             return;
         }
 
-        // TODO: Registration logic
         Alert.alert('Registered successfully!');
-        navigation.navigate('Login');
+        // navigation.navigate('Login');
+        navigation.navigate('Profile', {
+        fullName,
+        email,
+        contact,
+        instrument,
+        batchTime,
+        batchType,
+    });
     };
 
     return (
@@ -70,7 +75,7 @@ export default function RegisterScreen({ navigation }) {
         <KeyboardAvoidingView
             style={styles.rcontainer}
             behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-
+            
             <ScrollView contentContainerStyle={styles.scrollContainer} keyboardShouldPersistTaps="handled">
 
                 {/* <View style={styles.container}> */}

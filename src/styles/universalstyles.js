@@ -14,7 +14,7 @@ const COLORS = {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    // marginTop: 100,
+    marginTop: 100,
     backgroundColor: COLORS.white,
   },
  
@@ -303,9 +303,18 @@ fcontainer: {
 StudentDashboardcontainer:{
   flex: 1,
   justifyContent: 'center', // vertical center
-  padding: 20,
-  // marginTop:20,
+  paddingLeft:1,
+  paddingRight:2,
+  paddingHorizontal: 1,
+  paddingVertical:0,
+  //marginTop:20,
   backgroundColor: COLORS.white,
+},
+StudentDashboardUpdatedcontainer :{
+  justifyContent: 'center', // vertical center
+  padding: 20,
+  backgroundColor: COLORS.white,
+
 },
 
 dashboardTitle: {
@@ -350,7 +359,7 @@ bottomBar: {
   alignItems: 'center',
   backgroundColor: '#FFFFFF',
   paddingVertical: 12,
-  borderTopWidth: 1,
+  borderTopWidth: 2,
   borderTopColor: '#E5E7EB',
   position: 'absolute',
   bottom: 0,
@@ -563,7 +572,7 @@ customHeader: {
   justifyContent: 'space-between',
   alignItems: 'center',
   paddingVertical: 12,
-  paddingHorizontal: 16,
+  //paddingHorizontal: 16,
   elevation: 4,
 },
 
@@ -578,6 +587,40 @@ detailContainer: {
   flex: 1,
   backgroundColor: COLORS.white,
   paddingBottom: 20,
+},
+detailCenterContainer:{
+  backgroundColor: COLORS.white,
+  paddingBottom: 20,
+  paddingHorizontal: 20,
+
+},
+
+courseTitle: {
+  fontSize: 22,
+  fontWeight: 'bold',
+  color: '#1E3A8A',
+  textAlign: 'center',
+  marginBottom: 12,
+},
+aboutPriceRow: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  paddingHorizontal: 16,
+  marginBottom: 8,
+},
+aboutLabel: {
+  fontSize: 16,
+  fontWeight: '600',
+  color: '#1F2937',
+},
+priceLabel: {
+  fontSize: 16,
+  fontWeight: 'bold',
+  backgroundColor: '#FACC15',
+  paddingHorizontal: 10,
+  paddingVertical: 2,
+  borderRadius: 12,
+  color: '#1F2937',
 },
 
 detailHeader: {
@@ -600,8 +643,9 @@ detailImage: {
   width: '100%',
   height: 200,
   resizeMode: 'cover',
-  borderBottomLeftRadius: 12,
-  borderBottomRightRadius: 12,
+  borderRadius:25,
+  // borderBottomLeftRadius: 12,
+  // borderBottomRightRadius: 12,
   marginBottom: 20,
   alignItems: 'center',
   marginTop:40,
@@ -633,7 +677,7 @@ detailPrice: {
 detailEnrollBtn: {
   backgroundColor: COLORS.secondary,
   paddingVertical: 10,
-  paddingHorizontal: 20,
+  paddingHorizontal: 120,
   borderRadius: 8,
 },
 
@@ -643,6 +687,252 @@ detailEnrollText: {
   fontSize: 16,
 },
 
+// ------------------------- Logout----------
+containerCenter: {
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: 20,
+  backgroundColor: '#FFFFFF',
+},
+heading: {
+  fontSize: 22,
+  marginBottom: 20,
+  color: '#1E3A8A',
+  fontWeight: 'bold',
+},
+dangerButton: {
+  backgroundColor: '#EF4444',
+  paddingVertical: 12,
+  paddingHorizontal: 30,
+  borderRadius: 10,
+},
+buttonText: {
+  color: '#FFFFFF',
+  fontSize: 16,
+  fontWeight: 'bold',
+},
+// ------------------------------------- Chat Section 
+
+messageBubble: {
+  marginVertical: 5,
+  padding: 10,
+  borderRadius: 10,
+  maxWidth: '75%'
+},
+myMessage: {
+  backgroundColor: '#DCF8C6',
+  alignSelf: 'flex-end'
+},
+otherMessage: {
+  backgroundColor: '#E5E7EB',
+  alignSelf: 'flex-start'
+},
+messageText: {
+  fontSize: 16,
+  color: '#111827'
+},
+inputContainer: {
+  flexDirection: 'row',
+  padding: 10,
+  borderTopWidth: 1,
+  borderColor: '#ccc',
+  backgroundColor: '#fff'
+},
+textInput: {
+  flex: 1,
+  borderWidth: 1,
+  borderColor: '#ccc',
+  borderRadius: 20,
+  paddingHorizontal: 15,
+  height: 40
+},
+sendButton: {
+  marginLeft: 10,
+  backgroundColor: '#1E3A8A',
+  borderRadius: 20,
+  padding: 10,
+  justifyContent: 'center',
+  alignItems: 'center'
+},
+chatList: {
+  padding: 10
+},
+
+//  updated logout scree ----------------------
+modalOverlay: {
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: 'rgba(0,0,0,0.4)',
+},
+
+modalBox: {
+  width: '80%',
+  backgroundColor: '#FFFFFF',
+  borderRadius: 10,
+  padding: 20,
+  alignItems: 'center',
+  elevation: 10,
+},
+
+textCenter: {
+  fontSize: 16,
+  color: '#374151',
+  textAlign: 'center',
+  marginVertical: 10,
+},
+
+modalButtonRow: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  marginTop: 20,
+  width: '100%',
+},
+
+modalButton: {
+  flex: 1,
+  paddingVertical: 10,
+  marginHorizontal: 5,
+  borderRadius: 8,
+  alignItems: 'center',
+},
+
+cancelButton: {
+  backgroundColor: '#9CA3AF', // gray
+},
+
+dangerButton: {
+  backgroundColor: '#EF4444', // red
+},
+// -------------Profile Screen Student 
+profileContainer: {
+  backgroundColor: '#FFFFFF',
+  padding: 20,
+  borderRadius: 10,
+  marginVertical: 20,
+  shadowColor: '#000',
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.2,
+  shadowRadius: 4,
+  elevation: 5,
+},
+profileLabel: {
+  fontWeight: 'bold',
+  fontSize: 16,
+  color: '#1E3A8A',
+  marginTop: 10,
+},
+profileValue: {
+  fontSize: 16,
+  color: '#111827',
+},
+
+
+// Optional styling for titles inside the payment/success step
+paymentTitle: {
+  fontSize: 22,
+  fontWeight: 'bold',
+  color: '#10B981', // green for success or trust
+  textAlign: 'center',
+  marginBottom: 12,
+},
+
+paymentDescription: {
+  fontSize: 16,
+  color: '#374151',
+  textAlign: 'center',
+  paddingHorizontal: 20,
+  marginBottom: 20,
+},
+
+successTitle: {
+  fontSize: 22,
+  fontWeight: 'bold',
+  color: '#22C55E', // bright green for success
+  textAlign: 'center',
+  marginBottom: 12,
+},
+
+successDescription: {
+  fontSize: 16,
+  color: '#1F2937',
+  textAlign: 'center',
+  paddingHorizontal: 20,
+  marginBottom: 20,
+},
+
+successIcon: {
+  fontSize: 48,
+  color: '#22C55E',
+  textAlign: 'center',
+  marginVertical: 20,
+},
+PaymentandENrollment:{
+  textAlign: 'center',
+  justifyContent: 'center',
+  alignItems: 'center', 
+  paddingVertical:230,
+
+},
+// -------- Profile Screen ----------
+profileContainer: {
+  flexGrow: 1,
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+  paddingTop: 30,
+  paddingBottom: 100, // Space for bottom nav
+  backgroundColor: '#F9FAFB',
+},
+
+avatarWrapper: {
+  position: 'relative',
+  marginBottom: 20,
+},
+
+avatar: {
+  width: 110,
+  height: 110,
+  borderRadius: 55,
+  backgroundColor: '#E5E7EB',
+},
+
+editIcon: {
+  position: 'absolute',
+  bottom: 0,
+  right: 0,
+  backgroundColor: '#FACC15',
+  borderRadius: 12,
+  padding: 6,
+  borderWidth: 1,
+  borderColor: '#FFFFFF',
+},
+
+inputField: {
+  width: '80%',
+  borderWidth: 1,
+  borderColor: '#CBD5E1',
+  borderRadius: 8,
+  padding: 10,
+  marginVertical: 6,
+  backgroundColor: '#FFFFFF',
+  fontSize: 16,
+  color: '#1F2937',
+},
+
+saveButton: {
+  marginTop: 10,
+  backgroundColor: '#1E3A8A',
+  paddingVertical: 10,
+  paddingHorizontal: 30,
+  borderRadius: 8,
+},
+
+saveButtonText: {
+  color: '#FFFFFF',
+  fontSize: 16,
+  textAlign: 'center',
+},
 
 });
 
