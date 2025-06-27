@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import styles from '../../styles/universalstyles';
+import styles from '../OwnerDashBoard/Style/AcademyStyles';
 
 const instruments = ['Guitar', 'Tabla', 'Piano', 'Violin'];
 

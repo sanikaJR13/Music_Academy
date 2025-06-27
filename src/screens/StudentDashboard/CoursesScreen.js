@@ -5,13 +5,13 @@ import {
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 // import DropDownPicker from 'react-native-dropdown-picker';
-import styles from '../../styles/universalstyles';
+// import styles from '../../styles/universalstyles';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native';
 // import { COLORS } from '../../styles/universalstyles'; // update the path based on your project structure
 import { useNavigation } from '@react-navigation/native';
-
+import styles from '../OwnerDashBoard/Style/AcademyStyles';
 const dummyCourses = [
   {
     id: '1',

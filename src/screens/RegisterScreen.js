@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import styles from '../styles/universalstyles';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 export default function RegisterScreen({ navigation }) {
 
@@ -45,6 +46,28 @@ export default function RegisterScreen({ navigation }) {
         { label: 'Offline', value: 'offline' },
     ]);
 
+    useEffect(() => {
+        if (instrumentOpen) {
+            setTimeOpen(false);
+            setTypeOpen(false);
+        }
+    }, [instrumentOpen]);
+
+    useEffect(() => {
+        if (timeOpen) {
+            setInstrumentOpen(false);
+            setTypeOpen(false);
+        }
+    }, [timeOpen]);
+
+    useEffect(() => {
+        if (typeOpen) {
+            setInstrumentOpen(false);
+            setTimeOpen(false);
+        }
+    }, [typeOpen]);
+
+
     const handleRegister = () => {
         if (
             !fullName || !email || !contact || !password || !confirmPassword ||
@@ -61,22 +84,28 @@ export default function RegisterScreen({ navigation }) {
         Alert.alert('Registered successfully!');
         // navigation.navigate('Login');
         navigation.navigate('Profile', {
-        fullName,
-        email,
-        contact,
-        instrument,
-        batchTime,
-        batchType,
-    });
+            fullName,
+            email,
+            contact,
+            instrument,
+            batchTime,
+            batchType,
+        });
     };
 
     return (
 
-        <KeyboardAvoidingView
-            style={styles.rcontainer}
-            behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-            
-            <ScrollView contentContainerStyle={styles.scrollContainer} keyboardShouldPersistTaps="handled">
+        <KeyboardAwareScrollView
+            contentContainerStyle={styles.scrollContainer}
+            keyboardShouldPersistTaps="handled"
+        >
+
+
+
+            <KeyboardAvoidingView
+                style={styles.rcontainer}
+                behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+
 
                 {/* <View style={styles.container}> */}
                 <Image source={require('../assets/logowithoutbackground.png')}
@@ -142,7 +171,7 @@ export default function RegisterScreen({ navigation }) {
                     />
                 </View>
 
-                <View style={styles.formGroup}>
+                {/* <View style={styles.formGroup}>
                     <Text style={styles.label}>Preferred Instrument</Text>
                     <DropDownPicker
                         open={instrumentOpen}
@@ -188,7 +217,101 @@ export default function RegisterScreen({ navigation }) {
                         dropDownContainerStyle={styles.dropdownContainer}
                         textStyle={{ color: '#1F2937' }}
                     />
+                </View> */}
+                {/* <View style={[styles.formGroup, { zIndex: 3000, elevation:3, marginBottom: 20 }]}>
+                    <Text style={styles.label}>Preferred Instrument</Text>
+                    <DropDownPicker
+                        open={instrumentOpen}
+                        value={instrument}
+                        items={instrumentItems}
+                        setOpen={setInstrumentOpen}
+                        setValue={setInstrument}
+                        setItems={setInstrumentItems}
+                        placeholder="Select Instrument"
+                        style={styles.dropdown}
+                        dropDownContainerStyle={styles.dropdownContainer}
+                        textStyle={{ color: '#1F2937' }}
+                    />
                 </View>
+
+                <View style={[styles.formGroup, { zIndex: 2000, elevation: 1, marginBottom: 20 }]}>
+                    <Text style={styles.label}>Batch Time</Text>
+                    <DropDownPicker
+                        open={timeOpen}
+                        value={batchTime}
+                        items={timeItems}
+                        setOpen={setTimeOpen}
+                        setValue={setBatchTime}
+                        setItems={setTimeItems}
+                        placeholder="Select Time"
+                        style={styles.dropdown}
+                        dropDownContainerStyle={styles.dropdownContainer}
+                        textStyle={{ color: '#1F2937' }}
+                    />
+                </View>
+
+                <View style={[styles.formGroup, { zIndex: 2000, elevation: 1, marginBottom: 20}]}>
+                    <Text style={styles.label}>Batch Type</Text>
+                    <DropDownPicker
+                        open={typeOpen}
+                        value={batchType}
+                        items={typeItems}
+                        setOpen={setTypeOpen}
+                        setValue={setBatchType}
+                        setItems={setTypeItems}
+                        placeholder="Select Type"
+                        style={styles.dropdown}
+                        dropDownContainerStyle={styles.dropdownContainer}
+                        textStyle={{ color: '#1F2937' }}
+                    />
+                </View> */}
+
+                <View style={[styles.formGroup, { zIndex: 3000, marginBottom: 20 }]}>
+                    <Text style={styles.label}>Preferred Instrument</Text>
+                    <DropDownPicker
+                        open={instrumentOpen}
+                        value={instrument}
+                        items={instrumentItems}
+                        setOpen={setInstrumentOpen}
+                        setValue={setInstrument}
+                        setItems={setInstrumentItems}
+                        placeholder="Select Instrument"
+                        style={styles.dropdown}
+                        dropDownContainerStyle={styles.dropdownContainer}
+                    />
+                </View>
+
+                <View style={[styles.formGroup, { zIndex: 2000, marginBottom: 20 }]}>
+                    <Text style={styles.label}>Batch Time</Text>
+                    <DropDownPicker
+                        open={timeOpen}
+                        value={batchTime}
+                        items={timeItems}
+                        setOpen={setTimeOpen}
+                        setValue={setBatchTime}
+                        setItems={setTimeItems}
+                        placeholder="Select Time"
+                        style={styles.dropdown}
+                        dropDownContainerStyle={styles.dropdownContainer}
+                    />
+                </View>
+
+                <View style={[styles.formGroup, { zIndex: 1000, marginBottom: 20 }]}>
+                    <Text style={styles.label}>Batch Type</Text>
+                    <DropDownPicker
+                        open={typeOpen}
+                        value={batchType}
+                        items={typeItems}
+                        setOpen={setTypeOpen}
+                        setValue={setBatchType}
+                        setItems={setTypeItems}
+                        placeholder="Select Type"
+                        style={styles.dropdown}
+                        dropDownContainerStyle={styles.dropdownContainer}
+                    />
+                </View>
+
+
 
                 <TouchableOpacity style={styles.loginButton} onPress={handleRegister}>
                     <Text style={styles.loginButtonText}>SUBMIT</Text>
@@ -204,7 +327,8 @@ export default function RegisterScreen({ navigation }) {
                 </View>
 
 
-            </ScrollView>
-        </KeyboardAvoidingView >
+
+            </KeyboardAvoidingView >
+        </KeyboardAwareScrollView>
     );
 }

@@ -279,6 +279,16 @@ dropdownContainer: {
     backgroundColor: COLORS.white,
 
   },
+  dropdownHigh: {
+  zIndex: 3000,
+},
+dropdownMid: {
+  zIndex: 2000,
+},
+dropdownLow: {
+  zIndex: 1000,
+},
+
 
 // ----------------------------------------
 // ForgotPasswordScreen

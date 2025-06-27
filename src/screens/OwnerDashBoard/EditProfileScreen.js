@@ -7,7 +7,7 @@ import {
   ScrollView,
   Alert,
 } from 'react-native';
-import styles from '../../styles/universalstyles';
+import styles from '../OwnerDashBoard/Style/AcademyStyles';
 
 const EditProfileScreen = ({ navigation }) => {
   const [academyName, setAcademyName] = useState('Beats Music Academy');

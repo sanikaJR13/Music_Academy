@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from '../../styles/universalstyles';
+//import styles from '../OwnerDashBoard/Style/AcademyStyles';
 
 const dashboardOptions = [
   { title: 'Students', icon: 'users', screen: 'Students' },

@@ -27,8 +27,8 @@ export default function LoginScreen({ navigation }) {
   }, []);
 
   const handleLogin = () => {
-    if (role === 'Owner') navigation.navigate('OwnerDashboard');
-    else if (role === 'Student') navigation.navigate('StudentDashboard');
+    if (role === 'Owner') navigation.navigate('AcademyDashBoard');
+    else if (role === 'Student') navigation.navigate('StudentDashBoard');
     else alert('Role not implemented yet');
   };
 

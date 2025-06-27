@@ -65,7 +65,6 @@ headerTitle: {
   fontWeight: 'bold',
   color: '#FFFFFF',
 },
-
 // ---- Bottom Bar
 bottomBar: {
   flexDirection: 'row',
@@ -136,7 +135,6 @@ instrumentText: {
   fontWeight: '500',
   color: '#1F2937',
 },
-
 profileContainer: {
   flex: 1,
   backgroundColor: '#F3F4F6',
@@ -250,120 +248,125 @@ saveButtonText: {
   fontSize: 16,
   fontWeight: 'bold',
 },
-//  -------Batch TimeTable Screen ----------
-// ⬇ Calendar Modal Overlay
-calendarModal: {
-  flex: 1,
-  justifyContent: 'center',
-  backgroundColor: 'rgba(0,0,0,0.5)',
-  padding: 20,
-},
-
-calendarContainer: {
-  backgroundColor: 'white',
-  borderRadius: 10,
-  padding: 10,
-  elevation: 5,
-},
-
-// ⬇ Dropdown Picker Styling
-picker: {
-  backgroundColor: '#FFFFFF',
-  borderColor: '#E5E7EB',
-  borderWidth: 1,
-  borderRadius: 10,
-  marginBottom: 10,
-  color: '#1F2937',
-  paddingHorizontal: 10,
-  height: 50,
-},
-
-// ⬇ Batch Card Styling
-courseCard: {
-  backgroundColor: '#FFFFFF',
-  borderRadius: 12,
-  padding: 15,
-  marginBottom: 15,
-  elevation: 3,
-  shadowColor: '#000',
-  shadowOffset: { width: 0, height: 1 },
-  shadowOpacity: 0.1,
-  shadowRadius: 2,
-},
-
-courseImage: {
-  width: '100%',
-  height: 120,
-  borderRadius: 10,
-  marginBottom: 10,
-  resizeMode: 'cover',
-},
-
-courseTitle: {
-  fontSize: 16,
-  fontWeight: 'bold',
-  color: '#1E3A8A',
-  marginBottom: 4,
-},
-
-courseLevel: {
-  fontSize: 14,
-  color: '#374151',
-  marginBottom: 4,
-},
-
-courseDescription: {
-  fontSize: 14,
-  color: '#6B7280',
-  marginBottom: 4,
-},
-
-coursePrice: {
-  fontSize: 14,
-  color: '#F59E0B',
-  marginBottom: 4,
-},
-
-
-// 🔽 Add this in universalstyles.js
-
-filterContainer: {
-  flexDirection: 'row',
-  flexWrap: 'wrap',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  paddingHorizontal: 10,
-  marginBottom: 10,
-  marginTop: 10,
-  gap: 10,
-},
-
-pickerWrapper: {
-  flex: 1,
+// -------------------------------------------
+// Batch Time Table ---------------
+// -------------------
+customHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#1E3A8A',
+    padding: 15,
+    paddingTop: 50,
+  },
+  headerTitle: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  dateRow: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  dateText: {
+    fontWeight: '600',
+    fontSize: 16,
+    marginRight: 8,
+    color: '#1E3A8A',
+  },
+  filterContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 10,
+    flexWrap: 'wrap',
+  },
+  pickerWrapper: {
+    borderWidth: 15,
+    borderColor: '#1F2937',
+    borderRadius: 15,
+    flex: 1,
+    marginHorizontal: 4,
+    marginVertical: 5,
+    // backgroundColor: '#FFFFFF',
+    overflow: 'hidden',
+  },
+  
+  pickerStyle: {
+    width: '100%',
+    height: 40,
+    color: '#1F2937',
+  },
+  pickerWrapper: {
   borderWidth: 1,
   borderColor: '#1E3A8A',
   borderRadius: 10,
-  backgroundColor: '#FFFFFF',
   overflow: 'hidden',
-  height: 42,
-  justifyContent: 'center',
-  backgroundColor: '#E5E7EB', // lightGray
-  borderColor: '#1E3A8A',      // slateBlue border
-  marginBottom: 10, 
+  minWidth: 150,
+  marginRight: 10,
 },
 
 pickerStyle: {
-  height: 100,
-  width: '100%',
-  color: '#1E3A8A',
-  fontSize: 14,
-  paddingLeft: 8,
-    paddingHorizontal: 8,
-  marginTop: -2,
   height: 40,
+  color: '#000',
 },
 
-
+  courseCard: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 10,
+    padding: 12,
+    marginVertical: 8,
+    marginHorizontal: 5,
+    shadowColor: '#000',
+    shadowOpacity: 0.05,
+    shadowRadius: 5,
+    elevation: 2,
+  },
+  courseImage: {
+    width: '100%',
+    height: 160,
+    resizeMode: 'contain',
+    marginBottom: 10,
+  },
+  courseTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#000000',
+    textAlign: 'center',
+  },
+  courseLevel: {
+    textAlign: 'center',
+    color: '#6B7280',
+    fontWeight: '600',
+  },
+  courseDescription: {
+    textAlign: 'center',
+    color: '#6B7280',
+  },
+  coursePrice: {
+    textAlign: 'center',
+    color: '#1E3A8A',
+    fontWeight: '600',
+    marginTop: 4,
+  },
+  emptyText: {
+    textAlign: 'center',
+    color: '#9CA3AF',
+    marginTop: 20,
+  },
+  bottomBar: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: '#FFFFFF',
+    borderTopWidth: 1,
+    borderColor: '#E5E7EB',
+    paddingVertical: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
 });
 
-export default styles; // ✅ Default export to fix 'undefined' error
+export default styles; 

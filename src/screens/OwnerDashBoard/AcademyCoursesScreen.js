@@ -7,6 +7,7 @@ import { Picker } from '@react-native-picker/picker';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { useNavigation } from '@react-navigation/native';
 import styles from '../../styles/universalstyles';
+//import styles from '../OwnerDashBoard/Style/AcademyStyles';
 
 const AcademyCoursesScreen = () => {
   const [search, setSearch] = useState('');
