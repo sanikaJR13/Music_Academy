@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from '../../styles/universalstyles';
+import BottomNavigation from '../../components/BottomNavigation';
 
 const ChatScreen = () => {
   const [messages, setMessages] = useState([
@@ -56,6 +57,8 @@ const ChatScreen = () => {
           <Icon name="paper-plane" size={18} color="#fff" />
         </TouchableOpacity>
       </View>
+      <BottomNavigation />
+
     </KeyboardAvoidingView>
   );
 };

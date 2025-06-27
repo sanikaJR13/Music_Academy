@@ -12,6 +12,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import { useNavigation } from '@react-navigation/native';
 import styles from '../../styles/universalstyles';
 import { ScrollView } from 'react-native';
+import BottomNavigation from '../../components/BottomNavigation';
 
 
 const ProfileScreen = () => {
@@ -87,7 +88,7 @@ const ProfileScreen = () => {
 
       
 
-      {/* 🔽 Bottom Navigation */}
+      {/* 🔽 Bottom Navigation
       <View style={styles.bottomBar}>
         <TouchableOpacity onPress={() => navigation.navigate('StudentDashBoard')}>
           <Icon name="home" size={22} color="#1E3A8A" />
@@ -98,7 +99,11 @@ const ProfileScreen = () => {
         <TouchableOpacity onPress={() => navigation.navigate('LogOut')}>
           <Icon name="sign-out-alt" size={22} color="#F97316" />
         </TouchableOpacity>
-      </View>
+      </View> */}
+      {/* Bottom Navigation */}
+      {/* <BottomNavigation currentTab="Profile" /> */}
+      <BottomNavigation />
+
     </View>
   );
 };

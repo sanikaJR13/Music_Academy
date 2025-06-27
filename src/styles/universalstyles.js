@@ -326,6 +326,33 @@ StudentDashboardUpdatedcontainer :{
   backgroundColor: COLORS.white,
 
 },
+centeredDashboardGrid: {
+  justifyContent: 'center',
+  alignItems: 'center',
+ 
+  gap: 20,
+},
+dashboardCard: {
+  backgroundColor: '#E5E7EB',
+  borderRadius: 12,
+  width: 140,
+  height: 120,
+  margin: 10,
+  justifyContent: 'center',
+  alignItems: 'center',
+  elevation: 3,
+  shadowColor: '#000',
+  shadowOpacity: 0.1,
+  shadowOffset: { width: 0, height: 2 },
+  shadowRadius: 4,
+},
+
+dashboardCardText: {
+  marginTop: 4,
+  fontSize: 16,
+  fontWeight: '600',
+  color: '#1E3A8A',
+},
 
 dashboardTitle: {
   fontSize: 22,
@@ -378,204 +405,371 @@ bottomBar: {
 
 // -----------------------------------------------------
 // CoursesScreen.js
-filterInput: {
-  flex: 0.48,
-  borderWidth: 1,
-  borderColor: '#6B7280',
-  borderRadius: 8,
-  paddingHorizontal: 10,
-  paddingVertical: 8,
-  backgroundColor: '#F3F4F6',
-  color: '#1F2937',
-},
+// filterInput: {
+//   flex: 0.48,
+//   borderWidth: 1,
+//   borderColor: '#6B7280',
+//   borderRadius: 8,
+//   paddingHorizontal: 10,
+//   paddingVertical: 8,
+//   backgroundColor: '#F3F4F6',
+//   color: '#1F2937',
+// },
 
-courseCard: {
-  flexDirection: 'row',
-  backgroundColor: '#FFFFFF',
-  borderRadius: 10,
-  marginVertical: 8,
-  overflow: 'hidden',
-  elevation: 3,
-  shadowColor: '#000',
-  shadowOpacity: 0.1,
-  shadowOffset: { width: 0, height: 2 },
-  shadowRadius: 4,
-},
+// courseCard: {
+//   flexDirection: 'row',
+//   backgroundColor: '#FFFFFF',
+//   borderRadius: 10,
+//   marginVertical: 8,
+//   overflow: 'hidden',
+//   elevation: 3,
+//   shadowColor: '#000',
+//   shadowOpacity: 0.1,
+//   shadowOffset: { width: 0, height: 2 },
+//   shadowRadius: 4,
+// },
 
-courseImage: {
-  width: 100,
-  height: 100,
-},
+// courseImage: {
+//   width: 100,
+//   height: 100,
+// },
 
-courseInfo: {
-  flex: 1,
-  padding: 10,
-},
+// courseInfo: {
+//   flex: 1,
+//   padding: 10,
+// },
 
-courseTitle: {
-  fontSize: 16,
-  fontWeight: 'bold',
-  color: '#1E3A8A',
-},
+// courseTitle: {
+//   fontSize: 16,
+//   fontWeight: 'bold',
+//   color: '#1E3A8A',
+// },
 
-courseDescription: {
-  fontSize: 13,
-  color: '#374151',
-  marginVertical: 4,
-},
+// courseDescription: {
+//   fontSize: 13,
+//   color: '#374151',
+//   marginVertical: 4,
+// },
 
-enrollButton: {
-  backgroundColor: '#60A5FA',
-  paddingVertical: 6,
-  paddingHorizontal: 12,
-  borderRadius: 6,
-  alignSelf: 'flex-start',
-},
+// enrollButton: {
+//   backgroundColor: '#60A5FA',
+//   paddingVertical: 6,
+//   paddingHorizontal: 12,
+//   borderRadius: 6,
+//   alignSelf: 'flex-start',
+// },
 
-enrollText: {
-  color: '#FFFFFF',
-  fontWeight: 'bold',
-},
-carousel: {
-  height: 160,
-  marginBottom: 10,
-  paddingTop:10,
-},
+// enrollText: {
+//   color: '#FFFFFF',
+//   fontWeight: 'bold',
+// },
+// carousel: {
+//   height: 160,
+//   marginBottom: 10,
+//   paddingTop:10,
+// },
 
-carouselImage: {
-  width: '100%',
-  height: 160,
-  borderRadius: 12,
-  marginRight: 10,
-},
-courseCard: {
-  flex: 1,
-  backgroundColor: '#F9FAFB',
-  margin: 6,
-  borderRadius: 10,
-  padding: 8,
-  alignItems: 'center',
-},
-courseImage: {
-  width: '100%',
-  height: 100,
-  borderRadius: 8,
-},
-bottomNav: {
-  position: 'absolute',
-  bottom: 0,
-  left: 0,
-  right: 0,
-  height: 60,
-  backgroundColor: COLORS.white,
-  borderTopColor: '#D1D5DB',
-  borderTopWidth: 1,
-  flexDirection: 'row',
-  justifyContent: 'space-around',
-  alignItems: 'center',
-},
-navItem: {
-  fontSize: 24,
-  color: COLORS.slateGray,
-},
-activeNav: {
-  color: COLORS.primary,
-},
-carouselImage: {
-  width: 280,
-  height: 140,
-  borderRadius: 12,
-  marginRight: 10,
-},
-courseLevel: {
-  fontSize: 14,
-  fontWeight: '600',
-  color: '#6B7280',
-  marginBottom: 2,
-},
+// carouselImage: {
+//   width: '100%',
+//   height: 260,
+//   borderRadius: 12,
+//   marginRight: 10,
+// },
+// courseCard: {
+//   flex: 1,
+//   backgroundColor: '#F9FAFB',
+//   margin: 6,
+//   borderRadius: 10,
+//   padding: 8,
+//   alignItems: 'center',
+// },
+// courseImage: {
+//   width: '100%',
+//   height: 100,
+//   borderRadius: 8,
+// },
+// bottomNav: {
+//   position: 'absolute',
+//   bottom: 0,
+//   left: 0,
+//   right: 0,
+//   height: 60,
+//   backgroundColor: COLORS.white,
+//   borderTopColor: '#D1D5DB',
+//   borderTopWidth: 1,
+//   flexDirection: 'row',
+//   justifyContent: 'space-around',
+//   alignItems: 'center',
+// },
+// navItem: {
+//   fontSize: 24,
+//   color: COLORS.slateGray,
+// },
+// activeNav: {
+//   color: COLORS.primary,
+// },
+// carouselImage: {
+//   width: 280,
+//   height: 140,
+//   borderRadius: 12,
+//   marginRight: 10,
+// },
+// courseLevel: {
+//   fontSize: 14,
+//   fontWeight: '600',
+//   color: '#6B7280',
+//   marginBottom: 2,
+// },
 
-coursePrice: {
-  fontSize: 15,
-  fontWeight: 'bold',
-  color: '#1E3A8A',
-  marginVertical: 4,
-},
-scrollContainer: {
-  paddingBottom: 100,
+// coursePrice: {
+//   fontSize: 15,
+//   fontWeight: 'bold',
+//   color: '#1E3A8A',
+//   marginVertical: 4,
+// },
+// scrollContainer: {
+//   paddingBottom: 100,
   
-},
+// },
 
-courseGrid: {
-  flexDirection: 'row',
-  flexWrap: 'wrap',
-  justifyContent: 'space-between',
-},
+// courseGrid: {
+//   flexDirection: 'row',
+//   flexWrap: 'wrap',
+//   justifyContent: 'space-between',
+// },
 
-filterRow: {
+// filterRow: {
+//   flexDirection: 'row',
+//   justifyContent: 'space-between',
+//   gap: 10,
+//   marginBottom: 10,
+// },
+
+// pickerWrapperSmall: {
+//   flex: 1,
+//   backgroundColor: COLORS.lightGray,
+//   borderColor: COLORS.slateGray,
+//   borderWidth: 1,
+//   borderRadius: 8,
+//   overflow: 'hidden',
+//   height: 42,
+//   justifyContent: 'center',
+// },
+
+// picker: {
+//   color: COLORS.darkGray,
+//   fontSize: 14,
+//   height: 40,
+//   paddingHorizontal: 8,
+//   marginTop: -2, 
+// },
+// pickerItem: {
+//   fontSize: 14,
+//   height: 20,
+//   color: '#ffffff',
+//   fontFamily: 'System',
+// },
+// welcomeText: {
+//   fontSize: 20,
+//   fontWeight: 'bold',
+//   color: '#1E3A8A', // Deep Indigo
+//   marginBottom: 10,
+//   textAlign: 'center',
+// },
+
+
+
+//  scrollContainer: {
+//     paddingBottom: 100,
+//     paddingHorizontal: 10,
+//     backgroundColor: '#FFFFFF',
+//   },
+
+//   customHeader: {
+//     backgroundColor: '#1E3A8A',
+//     flexDirection: 'row',
+//     justifyContent: 'space-between',
+//     alignItems: 'center',
+//     paddingVertical: 12,
+//     paddingHorizontal: 16,
+//     elevation: 4,
+//     width: '100%',
+//   },
+
+//   headerTitle: {
+//     color: '#FFFFFF',
+//     fontSize: 18,
+//     fontWeight: '600',
+//   },
+
+//   carousel: {
+//     height: 160,
+//     marginBottom: 10,
+//     paddingTop: 10,
+//   },
+
+//   carouselImage: {
+//     width: 280,
+//     height: 140,
+//     borderRadius: 12,
+//     marginRight: 10,
+//   },
+
+//   input: {
+//     height: 40,
+//     borderWidth: 1,
+//     borderColor: '#D1D5DB',
+//     borderRadius: 8,
+//     paddingHorizontal: 12,
+//     marginVertical: 10,
+//     color: '#111827',
+//     backgroundColor: '#F3F4F6',
+//   },
+
+//   filterRow: {
+//     flexDirection: 'row',
+//     justifyContent: 'space-between',
+//     marginBottom: 10,
+//     gap: 10,
+//   },
+
+//   pickerWrapperSmall: {
+//     flex: 1,
+//     backgroundColor: '#F3F4F6',
+//     borderColor: '#6B7280',
+//     borderWidth: 1,
+//     borderRadius: 8,
+//     overflow: 'hidden',
+//     height: 42,
+//     justifyContent: 'center',
+//   },
+
+//   picker: {
+//     color: '#374151',
+//     fontSize: 14,
+//     height: 40,
+//     paddingHorizontal: 8,
+//     marginTop: -2,
+//   },
+
+//   courseCard: {
+//     flex: 1,
+//     backgroundColor: '#F9FAFB',
+//     margin: 6,
+//     borderRadius: 10,
+//     padding: 8,
+//     alignItems: 'center',
+//     maxWidth: '47%', // for 2 columns
+//   },
+
+//   courseImage: {
+//     width: '100%',
+//     height: 100,
+//     borderRadius: 8,
+//     resizeMode: 'contain',
+//   },
+
+//   courseTitle: {
+//     fontSize: 16,
+//     fontWeight: 'bold',
+//     color: '#1E3A8A',
+//     marginTop: 6,
+//   },
+
+//   courseLevel: {
+//     fontSize: 14,
+//     fontWeight: '600',
+//     color: '#6B7280',
+//     marginBottom: 2,
+//   },
+
+//   courseDescription: {
+//     fontSize: 13,
+//     color: '#374151',
+//     marginVertical: 4,
+//     textAlign: 'center',
+//   },
+
+//   coursePrice: {
+//     fontSize: 15,
+//     fontWeight: 'bold',
+//     color: '#1E3A8A',
+//     marginVertical: 4,
+//   },
+
+//   enrollButton: {
+//     backgroundColor: '#1E3A8A',
+//     paddingVertical: 6,
+//     paddingHorizontal: 16,
+//     borderRadius: 8,
+//     marginTop: 4,
+//   },
+
+//   enrollText: {
+//     color: '#FFFFFF',
+//     fontWeight: 'bold',
+//     fontSize: 14,
+//   },
+
+//   bottomNav: {
+//     position: 'absolute',
+//     bottom: 0,
+//     left: 0,
+//     right: 0,
+//     height: 60,
+//     backgroundColor: '#FFFFFF',
+//     borderTopColor: '#D1D5DB',
+//     borderTopWidth: 1,
+//     flexDirection: 'row',
+//     justifyContent: 'space-around',
+//     alignItems: 'center',
+//   },
+
+//   navItem: {
+//     fontSize: 24,
+//     color: '#6B7280',
+//   },
+
+//   activeNav: {
+//     color: '#1E3A8A',
+//   },
+
+//   welcomeText: {
+//     fontSize: 20,
+//     fontWeight: 'bold',
+//     color: '#1E3A8A',
+//     marginBottom: 10,
+//     textAlign: 'center',
+//   },
+//  filter ---
+  horizontalFilters: {
   flexDirection: 'row',
   justifyContent: 'space-between',
+  alignItems: 'center',
+  marginVertical: 10,
+  paddingHorizontal: 10,
   gap: 10,
-  marginBottom: 10,
 },
 
-pickerWrapperSmall: {
+horizontalPickerWrapper: {
   flex: 1,
-  backgroundColor: COLORS.lightGray,
-  borderColor: COLORS.slateGray,
   borderWidth: 1,
+  borderColor: '#000',
   borderRadius: 8,
   overflow: 'hidden',
+  backgroundColor: '#fff',
   height: 42,
   justifyContent: 'center',
 },
 
-picker: {
-  color: COLORS.darkGray,
+horizontalPicker: {
+  color: '#000', // Black text
   fontSize: 14,
-  height: 40,
+  height: 42,
   paddingHorizontal: 8,
-  marginTop: -2, 
-},
-pickerItem: {
-  fontSize: 14,
-  height: 20,
-  color: '#ffffff',
-  fontFamily: 'System',
-},
-// coursesscreencontainer:{
-//   paddingHorizontal: 0,
-//   paddingBottom: 60,
-//   // paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight || 0 : 0,
-//   padding: 0,
-//   backgroundColor: '#1E3A8A',
-
-// },
-welcomeText: {
-  fontSize: 20,
-  fontWeight: 'bold',
-  color: '#1E3A8A', // Deep Indigo
-  marginBottom: 10,
-  textAlign: 'center',
 },
 
-// dropdownWrapper: {
-//   flexDirection: 'column',
-//   marginBottom: 10,
-//   zIndex: 999, // very important!
-// },
-
-// dropdown: {
-//   backgroundColor: '#F3F4F6',
-//   borderColor: '#6B7280',
-//   borderRadius: 8,
-// },
-
-// dropdownList: {
-//   backgroundColor: '#FFFFFF',
-//   borderColor: '#6B7280',
-//   borderRadius: 8,
-// },
-
+// /-------------- Header ---------------
 customHeader: {
   backgroundColor: '#1E3A8A',
   flexDirection: 'row',
@@ -584,6 +778,7 @@ customHeader: {
   paddingVertical: 12,
   //paddingHorizontal: 16,
   elevation: 4,
+  width:"100%",
 },
 
 headerTitle: {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Modal, TouchableOpacity } from 'react-native';
 import styles from '../../styles/universalstyles';
 import { useNavigation } from '@react-navigation/native';
+import BottomNavigation from '../../components/BottomNavigation';
 
 const LogoutScreen = () => {
   const navigation = useNavigation();
@@ -58,6 +59,8 @@ const LogoutScreen = () => {
           </View>
         </View>
       </Modal>
+      {/* Bottom Navigation */}
+      <BottomNavigation currentTab="Profile" />
     </View>
   );
 };

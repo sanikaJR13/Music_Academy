@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from '../../styles/universalstyles';
+import BottomNavigation from '../../components/BottomNavigation';
 
 const CourseDetailScreen = ({ route, navigation }) => {
   const { course } = route.params;
@@ -105,9 +106,12 @@ const CourseDetailScreen = ({ route, navigation }) => {
   </>
 )} </View>
 </View>
+{/* Bottom Navigation */}
+      {/* <BottomNavigation currentTab="Courses" /> */}
+      <BottomNavigation />
 
 
-      {/* 🔽 Bottom Navigation */}
+      {/* 🔽 Bottom Navigation
       <View style={styles.bottomBar}>
         <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Icon name="home" size={22} color="#1E3A8A" />
@@ -118,7 +122,7 @@ const CourseDetailScreen = ({ route, navigation }) => {
         <TouchableOpacity onPress={() => navigation.navigate('LogOut')}>
           <Icon name="sign-out-alt" size={22} color="#F97316" />
         </TouchableOpacity>
-      </View>
+      </View> */}
     </View>
    
   );
