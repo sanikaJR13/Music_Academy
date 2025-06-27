@@ -801,31 +801,32 @@ detailCenterContainer:{
 },
 
 courseTitle: {
-  fontSize: 22,
+  fontSize: 26,
   fontWeight: 'bold',
   color: '#1E3A8A',
   textAlign: 'center',
   marginBottom: 12,
 },
 aboutPriceRow: {
-  flexDirection: 'row',
+  
+  
   justifyContent: 'space-between',
   paddingHorizontal: 16,
-  marginBottom: 8,
+  marginBottom: 4,
 },
 aboutLabel: {
-  fontSize: 16,
+  fontSize:22,
   fontWeight: '600',
   color: '#1F2937',
 },
 priceLabel: {
-  fontSize: 16,
+  fontSize: 20,
   fontWeight: 'bold',
-  backgroundColor: '#FACC15',
+  //backgroundColor: COLORS.secondary,
   paddingHorizontal: 10,
   paddingVertical: 2,
   borderRadius: 12,
-  color: '#1F2937',
+  color: '#000000',
 },
 
 detailHeader: {
@@ -860,9 +861,10 @@ detailImage: {
 },
 
 detailDescription: {
-  fontSize: 16,
+  fontSize: 18,
   color: COLORS.darkGray,
   paddingHorizontal: 16,
+  paddingVertical: 20,
   marginBottom: 20,
 },
 
@@ -880,7 +882,8 @@ detailPrice: {
 },
 
 detailEnrollBtn: {
-  backgroundColor: COLORS.secondary,
+  backgroundColor: '#FACC15',
+  justifyContent: 'space-between',
   paddingVertical: 10,
   paddingHorizontal: 120,
   borderRadius: 8,
@@ -890,6 +893,21 @@ detailEnrollText: {
   color: COLORS.white,
   fontWeight: 'bold',
   fontSize: 16,
+  justifyContent: 'space-between',
+},
+welcomeTitle: {
+  fontSize: 22,
+  fontWeight: 'bold',
+  color: '#3B82F6', // blue
+  textAlign: 'center',
+  marginBottom: 12,
+},
+welcomeDescription: {
+  fontSize: 16,
+  color: '#1F2937',
+  textAlign: 'center',
+  paddingHorizontal: 20,
+  marginBottom: 20,
 },
 
 // ------------------------- Logout----------
@@ -1036,6 +1054,7 @@ profileValue: {
 
 // Optional styling for titles inside the payment/success step
 paymentTitle: {
+  justifyContent: 'center', 
   fontSize: 22,
   fontWeight: 'bold',
   color: '#10B981', // green for success or trust
@@ -1073,13 +1092,20 @@ successIcon: {
   textAlign: 'center',
   marginVertical: 20,
 },
-PaymentandENrollment:{
-  textAlign: 'center',
-  justifyContent: 'center',
-  alignItems: 'center', 
-  paddingVertical:230,
+// PaymentandENrollment:{
+//   textAlign: 'center',
+//   justifyContent: 'center',
+//   alignItems: 'center', 
+//   paddingVertical:230,
 
+// },
+PaymentandENrollment: {
+  flex: 1,                      // Takes full height of parent
+  justifyContent: 'center',    // Vertical centering
+  alignItems: 'center',        // Horizontal centering
+  paddingHorizontal: 20,       // Optional, to keep text away from screen edges
 },
+
 // -------- Profile Screen ----------
 profileContainer: {
   flexGrow: 1,

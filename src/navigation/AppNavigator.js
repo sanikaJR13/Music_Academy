@@ -10,11 +10,12 @@ import AcademyDashboardScreen from '../screens/OwnerDashBoard/AcademyDashboardSc
 import CoursesScreen from '../screens/StudentDashboard/CoursesScreen';
 import CourseDetailScreen from '../screens/StudentDashboard/CoursesDetailScreen';
 import ProfileStudent from '../screens/StudentDashboard/ProfileScreen';
-import ChatSection from '../screens/StudentDashboard/ChatSection';
 import LogoutScreen from '../screens/StudentDashboard/LogoutScreen';
-//  import AcademyCoursesScreen from '../screens/OwnerDashBoard/AcademyCoursesScreen';
-// import AcademyProfile from '../screens/OwnerDashBoard/ProfileScreen';
-// import BatchTimeTable from '../screens/OwnerDashBoard/BatchTimeTable';
+import ChatSection from '../screens/StudentDashboard/ChatSection';
+
+import AcademyCoursesScreen from '../screens/OwnerDashBoard/AcademyCoursesScreen';
+import AcademyProfile from '../screens/OwnerDashBoard/ProfileScreen';
+import BatchTimeTable from '../screens/OwnerDashBoard/BatchTimeTable';
 // import EditProfileScreen from '../screens/OwnerDashBoard/EditProfileScreen';
 
 
@@ -39,11 +40,10 @@ export default function AppNavigator() {
 
             {/* -----------------Academy Screens Form here ------------------------------------------ */}
              <Stack.Screen name="AcademyDashBoard" component={AcademyDashboardScreen} options={{ headerShown: false}}/>
-             {/*
             <Stack.Screen name="AcademyCoursesScreen" component={AcademyCoursesScreen} options={{ headerShown: false}}/> 
             <Stack.Screen name="AcademyProfile" component={AcademyProfile} options={{ headerShown: false}}/>
-            <Stack.Screen name="BatchTimeTable" component={BatchTimeTable} options={{ headerShown: false}}/> */} 
-             {/* <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ headerShown: false}}/> */}
+            <Stack.Screen name="BatchTimeTable" component={BatchTimeTable} options={{ headerShown: false}}/> 
+            {/* <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ headerShown: false}}/>  */}
             
 
     

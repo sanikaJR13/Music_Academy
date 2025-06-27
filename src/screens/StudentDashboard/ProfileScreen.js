@@ -2,318 +2,153 @@ import React, { useState } from 'react';
 import {
   View,
   Text,
-  Image,
   TextInput,
   TouchableOpacity,
-  KeyboardAvoidingView,
-  Platform,
+  Image,
+  ScrollView,
+  SafeAreaView,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import { useNavigation } from '@react-navigation/native';
-import styles from '../../styles/universalstyles';
-import { ScrollView } from 'react-native';
 import BottomNavigation from '../../components/BottomNavigation';
+import styles from '../../styles/ProfileScreenStyles';
+import { useNavigation } from '@react-navigation/native';
 
 
 const ProfileScreen = () => {
+  const [isEditing, setIsEditing] = useState(false);
+
+  const [name, setName] = useState('Ram Bhosale');
+  const [email, setEmail] = useState('rambhosale@gmail.com');
+  const [phone, setPhone] = useState('+91 9876543210');
+  const [instrument, setInstrument] = useState('Guitar');
+  const [batchTime, setBatchTime] = useState('6:00 PM - 7:00 PM');
+  const [batchType, setBatchType] = useState('Online');
+  const [level, setLevel] = useState('Beginner');
   const navigation = useNavigation();
 
-  const [isEditing, setIsEditing] = useState(false);
-  const [name, setName] = useState('John Doe');
-  const [course, setCourse] = useState('Guitar Basics');
-  const [batchTime, setBatchTime] = useState('5 PM - 6 PM');
 
-  const handleSave = () => {
-    setIsEditing(false);
-    // You can add database update logic here
-  };
+  const toggleEdit = () => setIsEditing(true);
+  const saveProfile = () => setIsEditing(false);
 
   return (
-    <View>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
       {/* 🔷 Header */}
       <View style={styles.customHeader}>
         <TouchableOpacity onPress={() => console.log('Menu pressed')}>
           <Icon name="bars" size={20} color="#FFFFFF" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Music Academy</Text>
+        <Text style={styles.headerTitle}>Profile</Text>
         <TouchableOpacity onPress={() => console.log('Notifications')}>
           <Icon name="bell" size={20} color="#FFFFFF" />
         </TouchableOpacity>
       </View>
 
-      <ScrollView contentContainerStyle={styles.profileContainer}>
-  <View style={styles.avatarWrapper}>
-    <Image
-      source={require('../../assets/insturments/theme/Guitar.png')}
-      style={styles.avatar}
-    />
-    <TouchableOpacity style={styles.editIcon} onPress={() => setIsEditing(true)}>
-      <Icon name="pen" size={12} color="#1E3A8A" />
-    </TouchableOpacity>
-  </View>
+      <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.profileImageContainer}>
+          <Image
+            source={require('../../assets/insturments/theme/Harmonium.png')}
+            style={styles.profileImage}
+          />
+          <TouchableOpacity style={styles.editIcon}>
+            <Icon name="edit" size={16} color="#fff" onPress={toggleEdit} />
+          </TouchableOpacity>
+        </View>
 
-  {isEditing ? (
-    <>
-      <TextInput
-        style={styles.inputField}
-        value={name}
-        onChangeText={setName}
-        placeholder="Enter Name"
-      />
-      <TextInput
-        style={styles.inputField}
-        value={course}
-        onChangeText={setCourse}
-        placeholder="Enter Course"
-      />
-      <TextInput
-        style={styles.inputField}
-        value={batchTime}
-        onChangeText={setBatchTime}
-        placeholder="Enter Batch Time"
-      />
-      <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
-        <Text style={styles.saveButtonText}>Save</Text>
-      </TouchableOpacity>
-    </>
-  ) : (
-    <>
-      <Text style={styles.profileText}>Name: {name}</Text>
-      <Text style={styles.profileText}>Course Selected: {course}</Text>
-      <Text style={styles.profileText}>Batch Time: {batchTime}</Text>
-    </>
-  )}
-</ScrollView>
+        {isEditing ? (
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              value={name}
+              onChangeText={setName}
+              placeholder="Full Name"
+              placeholderTextColor="#6B7280"
+            />
+            <TextInput
+              style={styles.input}
+              value={email}
+              onChangeText={setEmail}
+              placeholder="Email"
+              keyboardType="email-address"
+              placeholderTextColor="#6B7280"
+            />
+            <TextInput
+              style={styles.input}
+              value={phone}
+              onChangeText={setPhone}
+              placeholder="Contact Number"
+              keyboardType="phone-pad"
+              placeholderTextColor="#6B7280"
+            />
+            <TextInput
+              style={styles.input}
+              value={instrument}
+              onChangeText={setInstrument}
+              placeholder="Preferred Instrument"
+              placeholderTextColor="#6B7280"
+            />
+            <TextInput
+              style={styles.input}
+              value={batchTime}
+              onChangeText={setBatchTime}
+              placeholder="Batch Time"
+              placeholderTextColor="#6B7280"
+            />
+            <TextInput
+              style={styles.input}
+              value={batchType}
+              onChangeText={setBatchType}
+              placeholder="Batch Type (Online/Offline/Hybrid)"
+              placeholderTextColor="#6B7280"
+            />
+            <TextInput
+              style={styles.input}
+              value={level}
+              onChangeText={setLevel}
+              placeholder="Level (Beginner/Intermediate/Advanced)"
+              placeholderTextColor="#6B7280"
+            />
+          </View>
+        ) : (
+          <View style={styles.detailsView}>
+            <DetailItem label="Name" value={name} />
+            <DetailItem label="Email" value={email} />
+            <DetailItem label="Contact Number" value={phone} />
+            <DetailItem label="Preferred Instrument" value={instrument} />
+            <DetailItem label="Batch Time" value={batchTime} />
+            <DetailItem label="Batch Type" value={batchType} />
+            <DetailItem label="Level" value={level} />
+          </View>
+        )}
+
+        <View style={styles.optionsContainer}>
+          {isEditing && (
+            <TouchableOpacity style={styles.saveButton} onPress={saveProfile}>
+              <Text style={styles.saveText}>Save</Text>
+            </TouchableOpacity>
+          )}
 
 
-      
+          {/* Logout Button */}
+          <TouchableOpacity
+            style={styles.signOutButton}
+            onPress={() => navigation.replace('LogOut')}
+          >
+            <Text style={styles.signOutText}>Logout</Text>
+          </TouchableOpacity>
 
-      {/* 🔽 Bottom Navigation
-      <View style={styles.bottomBar}>
-        <TouchableOpacity onPress={() => navigation.navigate('StudentDashBoard')}>
-          <Icon name="home" size={22} color="#1E3A8A" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-          <Icon name="user" size={22} color="#1E3A8A" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('LogOut')}>
-          <Icon name="sign-out-alt" size={22} color="#F97316" />
-        </TouchableOpacity>
-      </View> */}
-      {/* Bottom Navigation */}
-      {/* <BottomNavigation currentTab="Profile" /> */}
+        </View>
+      </ScrollView>
+
       <BottomNavigation />
-
-    </View>
+    </SafeAreaView>
   );
 };
 
+const DetailItem = ({ label, value }) => (
+  <View style={{ marginBottom: 12, width: '100%' }}>
+    <Text style={{ fontSize: 14, color: '#6B7280' }}>{label}</Text>
+    <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#1F2937' }}>{value}</Text>
+  </View>
+);
+
 export default ProfileScreen;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from 'react';
-// import { View, Text, Image, TouchableOpacity } from 'react-native';
-// import Icon from 'react-native-vector-icons/FontAwesome5';
-// import { useNavigation } from '@react-navigation/native';
-// import styles from '../../styles/universalstyles';
-
-// const ProfileScreen = () => {
-//   const navigation = useNavigation();
-
-//   return (
-//     <View style={styles.profileContainer}>
-//       {/* 🔷 Header */}
-//       <View style={styles.customHeader}>
-//         <TouchableOpacity onPress={() => console.log('Menu pressed')}>
-//           <Icon name="bars" size={20} color="#FFFFFF" />
-//         </TouchableOpacity>
-//         <Text style={styles.headerTitle}>Music Academy</Text>
-//         <TouchableOpacity onPress={() => console.log('Notifications')}>
-//           <Icon name="bell" size={20} color="#FFFFFF" />
-//         </TouchableOpacity>
-//       </View>
-
-//       {/* 👤 Profile Section */}
-//       <View style={styles.profileContainer}>
-//         <View style={styles.avatarWrapper}>
-//           <Image
-//             source={require('../../assets/insturments/theme/Guitar.png')}
-//             style={styles.avatar}
-//           />
-//           <TouchableOpacity style={styles.editIcon}>
-//             <Icon name="pen" size={12} color="#1E3A8A" />
-//           </TouchableOpacity>
-//         </View>
-//         <Text style={styles.profileText}>Name: John Doe</Text>
-//         <Text style={styles.profileText}>Course Selected: Guitar Basics</Text>
-//         <Text style={styles.profileText}>Batch Time: 5 PM - 6 PM</Text>
-//       </View>
-
-//       {/* 🔽 Bottom Navigation */}
-//       <View style={styles.bottomBar}>
-//         <TouchableOpacity onPress={() => navigation.navigate('StudentDashBoard')}>
-//           <Icon name="home" size={22} color="#1E3A8A" />
-//         </TouchableOpacity>
-//         <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-//           <Icon name="user" size={22} color="#1E3A8A" />
-//         </TouchableOpacity>
-//         <TouchableOpacity onPress={() => navigation.navigate('LogOut')}>
-//           <Icon name="sign-out-alt" size={22} color="#F97316" />
-//         </TouchableOpacity>
-//       </View>
-//     </View>
-//   );
-// };
-
-// export default ProfileScreen;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // // import React from 'react';
-// // // import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
-// // // import styles from '../../styles/universalstyles';
-
-// // // // const ProfileScreen = ({ route, navigation }) => {
-// // // //   const {
-// // // //     fullName,
-// // // //     email,
-// // // //     contact,
-// // // //     instrument,
-// // // //     batchTime,
-// // // //     batchType,
-// // // //   } = route.params;
-
-// // //   return (
-// // //     <ScrollView contentContainerStyle={styles.scrollContainer}>
-// // //       <Image
-// // //         source={require('../../assets/Images/logo.png')}
-// // //         style={styles.logo}
-// // //       />
-
-// // //       <Text style={styles.title}>My Profile</Text>
-
-// // //       <View style={styles.profileContainer}>
-// // //         <Text style={styles.profileLabel}>Full Name:</Text>
-// // //         <Text style={styles.profileValue}>{fullName}</Text>
-
-// // //         <Text style={styles.profileLabel}>Email:</Text>
-// // //         <Text style={styles.profileValue}>{email}</Text>
-
-// // //         <Text style={styles.profileLabel}>Contact Number:</Text>
-// // //         <Text style={styles.profileValue}>{contact}</Text>
-
-// // //         <Text style={styles.profileLabel}>Instrument:</Text>
-// // //         <Text style={styles.profileValue}>{instrument}</Text>
-
-// // //         <Text style={styles.profileLabel}>Batch Time:</Text>
-// // //         <Text style={styles.profileValue}>{batchTime}</Text>
-
-// // //         <Text style={styles.profileLabel}>Batch Type:</Text>
-// // //         <Text style={styles.profileValue}>{batchType}</Text>
-// // //       </View>
-
-// // //       <TouchableOpacity
-// // //         style={styles.loginButton}
-// // //         onPress={() => navigation.navigate('Home')}
-// // //       >
-// // //         <Text style={styles.loginButtonText}>Go to Home</Text>
-// // //       </TouchableOpacity>
-// // //     </ScrollView>
-// // //   );
-// // // };
-
-// // // export default ProfileScreen;
-
-
-
-// // import React from 'react';
-// // import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
-// // import styles from '../../styles/universalstyles';
-
-// // const ProfileScreen = ({ route, navigation }) => {
-// //   const {
-// //     fullName,
-// //     email,
-// //     contact,
-// //     instrument,
-// //     batchTime,
-// //     batchType,
-// //   } = route?.params || {};
-
-// //   return (
-// //     <ScrollView contentContainerStyle={styles.scrollContainer}>
-// //       <Image
-// //         source={require('../../assets/Images/logo.png')}
-// //         style={styles.logo}
-// //       />
-
-// //       <Text style={styles.title}>My Profile</Text>
-
-// //       <View style={styles.profileContainer}>
-// //         <Text style={styles.profileLabel}>Full Name:</Text>
-// //         <Text style={styles.profileValue}>{fullName || 'N/A'}</Text>
-
-// //         <Text style={styles.profileLabel}>Email:</Text>
-// //         <Text style={styles.profileValue}>{email || 'N/A'}</Text>
-
-// //         <Text style={styles.profileLabel}>Contact Number:</Text>
-// //         <Text style={styles.profileValue}>{contact || 'N/A'}</Text>
-
-// //         <Text style={styles.profileLabel}>Instrument:</Text>
-// //         <Text style={styles.profileValue}>{instrument || 'N/A'}</Text>
-
-// //         <Text style={styles.profileLabel}>Batch Time:</Text>
-// //         <Text style={styles.profileValue}>{batchTime || 'N/A'}</Text>
-
-// //         <Text style={styles.profileLabel}>Batch Type:</Text>
-// //         <Text style={styles.profileValue}>{batchType || 'N/A'}</Text>
-// //       </View>
-
-// //       <TouchableOpacity
-// //         style={styles.loginButton}
-// //         onPress={() => navigation.navigate('Home')}
-// //       >
-// //         <Text style={styles.loginButtonText}>Go to Home</Text>
-// //       </TouchableOpacity>
-// //     </ScrollView>
-// //   );
-// // };
-
-// // export default ProfileScreen;
-
