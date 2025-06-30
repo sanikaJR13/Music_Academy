@@ -16,6 +16,7 @@ import ChatSection from '../screens/StudentDashboard/ChatSection';
 import AcademyCoursesScreen from '../screens/OwnerDashBoard/AcademyCoursesScreen';
 import AcademyProfile from '../screens/OwnerDashBoard/ProfileScreen';
 import BatchTimeTable from '../screens/OwnerDashBoard/BatchTimeTable';
+import AcademyCourseDetailScreen from '../screens/OwnerDashBoard/AcademyCourseDetailScreen';
 // import EditProfileScreen from '../screens/OwnerDashBoard/EditProfileScreen';
 
 
@@ -43,6 +44,7 @@ export default function AppNavigator() {
             <Stack.Screen name="AcademyCoursesScreen" component={AcademyCoursesScreen} options={{ headerShown: false}}/> 
             <Stack.Screen name="AcademyProfile" component={AcademyProfile} options={{ headerShown: false}}/>
             <Stack.Screen name="BatchTimeTable" component={BatchTimeTable} options={{ headerShown: false}}/> 
+            <Stack.Screen name="AcademyCourseDetailScreen" component={AcademyCourseDetailScreen} options={{ headerShown: false}}/> 
             {/* <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ headerShown: false}}/>  */}
             
 

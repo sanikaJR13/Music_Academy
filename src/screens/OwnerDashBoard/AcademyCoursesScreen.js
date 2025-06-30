@@ -1,35 +1,46 @@
+// 📁 AcademyCoursesScreen.js
+
 import React, { useState } from 'react';
 import {
-  View, Text, TextInput, TouchableOpacity,
-  FlatList, Image, ScrollView, SafeAreaView, StatusBar
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  FlatList,
+  Image,
+  StatusBar,
+  SafeAreaView,
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { useNavigation } from '@react-navigation/native';
-import styles from '../../styles/universalstyles';
-//import styles from '../OwnerDashBoard/Style/AcademyStyles';
+import styles from '../../styles/AcademyStyles';
+import AcademyBottomNavigation from '../../components/AcademyBottomNavigation';
 
-const AcademyCoursesScreen = () => {
-  const [search, setSearch] = useState('');
-  const [difficulty, setDifficulty] = useState('');
-  const [instrument, setInstrument] = useState('');
-  const navigation = useNavigation();
+const dummyCourses = [
+  // 🎸 Guitar, 🎹 Piano, 🎼 Flute, 🪘 Tabla, 🎶 Harmonium
+  // {
+  //   id: '1',
+  //   title: 'Guitar',
+  //   level: 'Beginner',
+  //   instrument: 'Guitar',
+  //   Price: '999',
+  //   description:
+  //     'Start your guitar journey with easy lessons focused on basic chords and rhythm...',
+  //   image: require('../../assets/insturments/theme/GuitarFinal.png'),
+  // },
+  // // Add remaining dummyCourses as in original (omitted for brevity)
+  // // ...
 
-  // const dummyCourses = [
-  //   // 📝 Same dummyCourses data as before, can be imported or reused
-  //   // For brevity, use the same data or import from a common file
-  // ];
-
-  const dummyCourses = [
   {
     id: '1',
     title: 'Guitar',
     level: 'Beginner',
     instrument: 'Guitar',
     Price: '999',
-    description: 'Start your guitar journey with easy lessons.',
+    description:
+      'Start your guitar journey with easy lessons focused on basic chords and rhythm. Learn how to hold and tune the guitar correctly. Simple strumming patterns and beginner-friendly songs will build your confidence. This course requires no prior experience and is perfect for absolute beginners.',
     image: require('../../assets/insturments/theme/GuitarFinal.png'),
-
   },
   {
     id: '2',
@@ -37,7 +48,8 @@ const AcademyCoursesScreen = () => {
     level: 'Intermediate',
     instrument: 'Guitar',
     Price: '1500',
-    description: 'Improve strumming and fingerstyle.',
+    description:
+      'Take your guitar skills to the next level with this intermediate course. Learn fingerstyle techniques, power chords, and barre chords. Explore rhythm variations, chord transitions, and improvisation. Ideal for students who have mastered the basics and are ready for more complexity.',
     image: require('../../assets/insturments/theme/GuitarFinal.png'),
   },
   {
@@ -46,7 +58,8 @@ const AcademyCoursesScreen = () => {
     level: 'Advanced',
     instrument: 'Guitar',
     Price: '3500',
-    description: 'Master solos and scales.',
+    description:
+      'Master the art of guitar playing with advanced techniques and theory. Focus on lead guitar skills, soloing, scales, and advanced improvisation. Study complex chord progressions and music composition. This course prepares you for performances and studio recordings.',
     image: require('../../assets/insturments/theme/GuitarFinal.png'),
   },
   {
@@ -55,7 +68,8 @@ const AcademyCoursesScreen = () => {
     level: 'Beginner',
     instrument: 'Piano',
     Price: '999',
-    description: 'Start your guitar journey with easy lessons.',
+    description:
+      'Discover the magic of piano with foundational lessons for beginners. Learn hand positioning, basic scales, and simple melodies. Practice both hands coordination with familiar tunes. A perfect start for young learners or adult beginners looking to explore piano.',
     image: require('../../assets/insturments/theme/Piano.png'),
   },
   {
@@ -64,7 +78,8 @@ const AcademyCoursesScreen = () => {
     level: 'Intermediate',
     instrument: 'Piano',
     Price: '1500',
-    description: 'Improve strumming and fingerstyle.',
+    description:
+      'Enhance your piano skills by focusing on melody, harmony, and chord progressions. Learn to play more complex pieces and improve your sight-reading. Develop both left and right hand coordination with challenging exercises. This course bridges the gap between beginner and advanced levels.',
     image: require('../../assets/insturments/theme/Piano.png'),
   },
   {
@@ -73,7 +88,8 @@ const AcademyCoursesScreen = () => {
     level: 'Advanced',
     instrument: 'Piano',
     Price: '3500',
-    description: 'Master solos and scales.',
+    description:
+      'Delve deep into classical and jazz piano techniques. Study advanced music theory, improvisation, and composition. Perform pieces from renowned composers and explore personal expression through music. Ideal for aspiring professional pianists and performers.',
     image: require('../../assets/insturments/theme/Piano.png'),
   },
   {
@@ -82,7 +98,8 @@ const AcademyCoursesScreen = () => {
     level: 'Beginner',
     instrument: 'Flute',
     Price: '999',
-    description: 'Start your guitar journey with easy lessons.',
+    description:
+      'Learn the basics of playing the flute with easy exercises and songs. Understand correct posture, breath control, and simple fingering. Build a solid foundation in tone production and rhythm. This course is designed to introduce beginners to the beauty of flute playing.',
     image: require('../../assets/insturments/theme/Flute.png'),
   },
   {
@@ -91,7 +108,8 @@ const AcademyCoursesScreen = () => {
     level: 'Intermediate',
     instrument: 'Flute',
     Price: '1500',
-    description: 'Improve strumming and fingerstyle.',
+    description:
+      'Improve your flute skills with advanced breathing techniques and fingering patterns. Learn classical compositions and Indian ragas. Focus on sound clarity, speed, and vibrato control. Perfect for those who have basic flute knowledge and want to go deeper.',
     image: require('../../assets/insturments/theme/Flute.png'),
   },
   {
@@ -100,7 +118,8 @@ const AcademyCoursesScreen = () => {
     level: 'Advanced',
     instrument: 'Flute',
     Price: '3500',
-    description: 'Master solos and scales.',
+    description:
+      'Master the nuances of flute performance with a focus on raagas, ornamentation, and improvisation. Learn to perform solo and ensemble pieces with confidence. Develop expressive techniques and stylistic interpretations. Aimed at serious students preparing for concerts or competitions.',
     image: require('../../assets/insturments/theme/Flute.png'),
   },
   {
@@ -109,7 +128,8 @@ const AcademyCoursesScreen = () => {
     level: 'Beginner',
     instrument: 'Tabla',
     Price: '999',
-    description: 'Start your guitar journey with easy lessons.',
+    description:
+      'Introduce yourself to the world of rhythm with beginner tabla lessons. Learn correct hand placement, basic bols, and simple taals. Develop your timing and coordination through regular practice. This course makes learning tabla fun and accessible for newcomers.',
     image: require('../../assets/insturments/theme/Tabala.png'),
   },
   {
@@ -118,7 +138,8 @@ const AcademyCoursesScreen = () => {
     level: 'Intermediate',
     instrument: 'Tabla',
     Price: '1500',
-    description: 'Improve strumming and fingerstyle.',
+    description:
+      'Explore complex taals, compositions, and variations in tabla playing. Improve hand speed, clarity, and rhythmic cycles. Practice classical kaidas, relas, and tukras. A strong step forward for learners with basic tabla knowledge.',
     image: require('../../assets/insturments/theme/Tabala.png'),
   },
   {
@@ -127,7 +148,8 @@ const AcademyCoursesScreen = () => {
     level: 'Advanced',
     instrument: 'Tabla',
     Price: '3500',
-    description: 'Master solos and scales.',
+    description:
+      'Achieve professional proficiency with advanced tabla compositions and improvisation. Learn accompaniment techniques for vocals and instruments. Gain command over intricate rhythm patterns and performance skills. Ideal for students preparing for stage and exams.',
     image: require('../../assets/insturments/theme/Tabala.png'),
   },
   {
@@ -136,7 +158,8 @@ const AcademyCoursesScreen = () => {
     level: 'Beginner',
     instrument: 'Harmonium',
     Price: '999',
-    description: 'Start your guitar journey with easy lessons.',
+    description:
+      'Get started with harmonium by learning key basics, scales, and simple tunes. Practice finger placement and playing with both hands. This beginner course is perfect for those interested in Indian classical or devotional music. No prior music knowledge needed.',
     image: require('../../assets/insturments/theme/Harmonium.png'),
   },
   {
@@ -145,7 +168,8 @@ const AcademyCoursesScreen = () => {
     level: 'Intermediate',
     instrument: 'Harmonium',
     Price: '1500',
-    description: 'Improve strumming and fingerstyle.',
+    description:
+      'Learn to play chords, ragas, and accompaniment styles. Improve hand coordination and develop musical expression. Understand the role of harmonium in solo and group settings. This course helps build a strong musical foundation.',
     image: require('../../assets/insturments/theme/Harmonium.png'),
   },
   {
@@ -154,11 +178,17 @@ const AcademyCoursesScreen = () => {
     level: 'Advanced',
     instrument: 'Harmonium',
     Price: '3500',
-    description: 'Master solos and scales.',
+    description:
+      'Advance your harmonium skills by mastering raagas, compositions, and live performance techniques. Dive into advanced theory and improvisation. Perfect for aspiring performers and music teachers. This course builds confidence and artistry for the stage.',
     image: require('../../assets/insturments/theme/Harmonium.png'),
   },
 ];
 
+export default function AcademyCoursesScreen() {
+  const navigation = useNavigation();
+  const [search, setSearch] = useState('');
+  const [difficulty, setDifficulty] = useState('');
+  const [instrument, setInstrument] = useState('');
 
   const filteredCourses = dummyCourses.filter((course) => {
     const matchesSearch = course.title.toLowerCase().includes(search.toLowerCase());
@@ -168,35 +198,54 @@ const AcademyCoursesScreen = () => {
   });
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <StatusBar backgroundColor="#1E3A8A" barStyle="light-content" />
-
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#F9FAFB' }}>
       <FlatList
         data={filteredCourses}
         keyExtractor={(item) => item.id}
         numColumns={2}
-        contentContainerStyle={{ paddingBottom: 160 }}
+        columnWrapperStyle={{ justifyContent: 'space-between', paddingHorizontal: 8 }}
+        contentContainerStyle={{ paddingBottom: 100 }}
         ListHeaderComponent={
           <>
+            <StatusBar backgroundColor="#1E3A8A" barStyle="light-content" />
+
             {/* 🔷 Header */}
             <View style={styles.customHeader}>
-              <TouchableOpacity onPress={() => navigation.openDrawer()}>
-                <Icon name="bars" size={20} color="#FFFFFF" paddingHorizontal="15"/>
+              <TouchableOpacity onPress={() => console.log('Menu pressed')}>
+                <Icon name="bars" size={20} color="#FFFFFF" />
               </TouchableOpacity>
-              <Text style={styles.headerTitle}>Academy Courses</Text>
-              <TouchableOpacity onPress={() => navigation.navigate('AddCourse')}>
-                <Icon name="plus" size={20} color="#FFFFFF" paddingHorizontal="25"/>
+              <Text style={styles.headerTitle}>Courses</Text>
+              <TouchableOpacity
+                onPress={() => console.log('Notifications')}
+                style={{ marginRight: 10 }}
+              >
+                <Icon name="bell" size={20} color="#FFFFFF" />
               </TouchableOpacity>
             </View>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('AcademyCoursesScreen')}
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                backgroundColor: '#1E3A8A',
+                paddingVertical: 10,
+                paddingHorizontal: 14,
+                margin: 10,
+                borderRadius: 8,
+                alignSelf: 'flex-end',
+              }}
+            >
+              <Icon name="plus" size={16} color="#FFFFFF" style={{ marginRight: 6 }} />
+              <Text style={{ color: '#FFFFFF', fontWeight: 'bold' }}>Add Courses</Text>
+            </TouchableOpacity>
 
-            {/* 🔍 Search */}
+            {/* 🔍 Search Bar */}
             <TextInput
               style={styles.input}
               placeholder="Search Courses..."
               placeholderTextColor="#6B7280"
               value={search}
               onChangeText={setSearch}
-              paddingVertical="10"
             />
 
             {/* 🎚️ Filters */}
@@ -238,60 +287,19 @@ const AcademyCoursesScreen = () => {
             <Image source={item.image} style={styles.courseImage} />
             <Text style={styles.courseTitle}>{item.instrument}</Text>
             <Text style={styles.courseLevel}>{item.level}</Text>
-            <Text style={styles.courseDescription}>{item.description}</Text>
             <Text style={styles.coursePrice}>₹{item.Price}</Text>
             <TouchableOpacity
               style={styles.enrollButton}
-              onPress={() => navigation.navigate('CoursesDetailScreen', { course: item })}
+              onPress={() => navigation.navigate('AcademyCourseDetailScreen', { course: item })}
             >
               <Text style={styles.enrollText}>View Details</Text>
             </TouchableOpacity>
           </View>
         )}
-        ListFooterComponent={
-          <TouchableOpacity
-            style={[styles.enrollButton, { margin: 20, backgroundColor: '#1E3A8A' }]}
-            onPress={() => navigation.navigate('AddCourse')}
-          >
-            <Text style={[styles.enrollText, { fontWeight: 'bold' }]}>+ Add New Course</Text>
-          </TouchableOpacity>
-        }
       />
 
-      {/* 🔽 Sticky Bottom Bar */}
-      <View style={[styles.bottomBar, {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        backgroundColor: '#FFFFFF',
-        borderTopWidth: 1,
-        borderColor: '#E5E7EB',
-        paddingVertical: 10,
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-      }]}>
-        <TouchableOpacity onPress={() => navigation.navigate('AcademyDashBoard')}>
-          <Icon name="home" size={22} color="#1E3A8A" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('AcademyProfile')}>
-          <Icon name="user" size={22} color="#1E3A8A" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('BatchTimeTable')}>
-          <Icon name="calendar-alt" size={22} color="#1E3A8A" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('AcademyCoursesScreen')}>
-          <Icon name="book" size={22} color="#1E3A8A" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Student')}>
-          <Icon name="user-graduate" size={22} color="#1E3A8A" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('LogOut')}>
-          <Icon name="sign-out-alt" size={22} color="#F97316" />
-        </TouchableOpacity>
-      </View>
+      <AcademyBottomNavigation />
+
     </SafeAreaView>
   );
-};
-
-export default AcademyCoursesScreen;
+}

@@ -909,6 +909,32 @@ welcomeDescription: {
   paddingHorizontal: 20,
   marginBottom: 20,
 },
+// -------------------- Acdemy Courses details screen -----
+editLabel: {
+  fontSize: 16,
+  fontWeight: '600',
+  marginVertical: 8,
+  color: '#1E3A8A',
+},
+editInput: {
+  borderWidth: 1,
+  borderColor: '#CBD5E1',
+  borderRadius: 8,
+  padding: 10,
+  fontSize: 16,
+  backgroundColor: '#FFFFFF',
+},
+editPickerWrapper: {
+  borderWidth: 1,
+  borderColor: '#CBD5E1',
+  borderRadius: 8,
+  marginBottom: 16,
+  overflow: 'hidden',
+},
+editPicker: {
+  height: 50,
+  color: '#111827',
+},
 
 // ------------------------- Logout----------
 containerCenter: {

@@ -3,13 +3,21 @@ import { View, Text, FlatList, TouchableOpacity, ScrollView } from 'react-native
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from '../../styles/universalstyles';
 //import styles from '../OwnerDashBoard/Style/AcademyStyles';
+import AcademyBottomNavigation from '../../components/AcademyBottomNavigation';
 
-const dashboardOptions = [
-  { title: 'Students', icon: 'users', screen: 'Students' },
-  { title: 'Courses', icon: 'book', screen: 'AcademyCoursesScreen' },
-  { title: 'Batches', icon: 'calendar-alt', screen: 'BatchTimeTable' },
-  { title: 'Profile', icon: 'user-circle', screen: 'AcademyProfile' },
-];
+// const dashboardOptions = [
+//   { title: 'Students', icon: 'users', screen: 'Students' },
+//   { title: 'Courses', icon: 'book', screen: 'AcademyCoursesScreen' },
+//   { title: 'Batches', icon: 'calendar-alt', screen: 'BatchTimeTable' },
+//   { title: 'Profile', icon: 'user-circle', screen: 'AcademyProfile' },
+// ];
+
+ const dashboardOptions = [
+    { title: 'Home', icon: 'home', screen: 'AcademyProfile' },
+    { title: 'Courses', icon: 'book', screen: 'AcademyCoursesScreen' },
+    { title: 'TimeTable', icon: 'calendar-alt', screen: 'BatchTimeTable' },
+    { title: 'Students', icon: 'users', screen: 'Students' },
+  ];
 
 const AcademyDashboardScreen = ({ navigation }) => {
   const renderItem = ({ item }) => (
@@ -43,7 +51,6 @@ const AcademyDashboardScreen = ({ navigation }) => {
         }}
         showsVerticalScrollIndicator={false}
       >
-        <Text style={styles.dashboardHeading}>Academy Dashboard</Text>
         <FlatList
           data={dashboardOptions}
           numColumns={2}
@@ -67,24 +74,8 @@ const AcademyDashboardScreen = ({ navigation }) => {
         flexDirection: 'row',
         justifyContent: 'space-around',
       }]}>
-        <TouchableOpacity onPress={() => navigation.navigate('AcademyDashBoard')}>
-          <Icon name="home" size={22} color="#1E3A8A" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('AcademyProfile')}>
-          <Icon name="user" size={22} color="#1E3A8A" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('BatchTimeTable')}>
-          <Icon name="calendar-alt" size={22} color="#1E3A8A" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('AcademyCoursesScreen')}>
-          <Icon name="book" size={22} color="#1E3A8A" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Student')}>
-          <Icon name="user-graduate" size={22} color="#1E3A8A" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('LogOut')}>
-          <Icon name="sign-out-alt" size={22} color="#F97316" />
-        </TouchableOpacity>
+      <AcademyBottomNavigation />
+
       </View>
     </View>
   );

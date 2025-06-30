@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from '../OwnerDashBoard/Style/AcademyStyles';
+import AcademyBottomNavigation from '../../components/AcademyBottomNavigation';
 
 const instruments = ['Guitar', 'Tabla', 'Piano', 'Violin'];
 
@@ -76,26 +77,8 @@ const ProfileScreen = ({ navigation }) => {
       </ScrollView>
 
       {/* 🔽 Bottom Navigation */}
-      <View style={styles.bottomBar}>
-        <TouchableOpacity onPress={() => navigation.navigate('AcademyDashBoard')}>
-          <Icon name="home" size={22} color="#1E3A8A" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('AcademyProfile')}>
-          <Icon name="user" size={22} color="#1E3A8A" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('BatchTimeTable')}>
-          <Icon name="calendar-alt" size={22} color="#1E3A8A" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('AcademyCoursesScreen')}>
-          <Icon name="book" size={22} color="#1E3A8A" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Student')}>
-          <Icon name="user-graduate" size={22} color="#1E3A8A" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('LogOut')}>
-          <Icon name="sign-out-alt" size={22} color="#F97316" />
-        </TouchableOpacity>
-      </View>
+      <AcademyBottomNavigation />
+
     </View>
   );
 };

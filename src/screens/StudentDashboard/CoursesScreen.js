@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import {
   View,
@@ -11,150 +10,11 @@ import {
   StatusBar,
   SafeAreaView,
 } from 'react-native';
-
 import { Picker } from '@react-native-picker/picker';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { useNavigation } from '@react-navigation/native';
 import styles from '../../styles/AcademyStyles';
 import BottomNavigation from '../../components/BottomNavigation';
-
-// const dummyCourses = [
-//   {
-//     id: '1',
-//     title: 'Guitar',
-//     level: 'Beginner',
-//     instrument: 'Guitar',
-//     Price: '999',
-//     description: 'Start your guitar journey with easy lessons.',
-//     image: require('../../assets/insturments/theme/GuitarFinal.png'),
-//   },
-//   {
-//     id: '2',
-//     title: 'Guitar',
-//     level: 'Intermediate',
-//     instrument: 'Guitar',
-//     Price: '1500',
-//     description: 'Improve strumming and fingerstyle.',
-//     image: require('../../assets/insturments/theme/GuitarFinal.png'),
-//   },
-//   {
-//     id: '3',
-//     title: 'Guitar',
-//     level: 'Advanced',
-//     instrument: 'Guitar',
-//     Price: '3500',
-//     description: 'Master solos and scales.',
-//     image: require('../../assets/insturments/theme/GuitarFinal.png'),
-//   },
-//   {
-//     id: '4',
-//     title: 'Piano',
-//     level: 'Beginner',
-//     instrument: 'Piano',
-//     Price: '999',
-//     description: 'Start your piano journey with easy lessons.',
-//     image: require('../../assets/insturments/theme/Piano.png'),
-//   },
-//   {
-//     id: '5',
-//     title: 'Piano',
-//     level: 'Intermediate',
-//     instrument: 'Piano',
-//     Price: '1500',
-//     description: 'Improve melody and harmony.',
-//     image: require('../../assets/insturments/theme/Piano.png'),
-//   },
-//   {
-//     id: '6',
-//     title: 'Piano',
-//     level: 'Advanced',
-//     instrument: 'Piano',
-//     Price: '3500',
-//     description: 'Master classical and jazz performance.',
-//     image: require('../../assets/insturments/theme/Piano.png'),
-//   },
-//   {
-//     id: '7',
-//     title: 'Flute',
-//     level: 'Beginner',
-//     instrument: 'Flute',
-//     Price: '999',
-//     description: 'Learn basic fingering and breath control.',
-//     image: require('../../assets/insturments/theme/Flute.png'),
-//   },
-//   {
-//     id: '8',
-//     title: 'Flute',
-//     level: 'Intermediate',
-//     instrument: 'Flute',
-//     Price: '1500',
-//     description: 'Enhance tone and techniques.',
-//     image: require('../../assets/insturments/theme/Flute.png'),
-//   },
-//   {
-//     id: '9',
-//     title: 'Flute',
-//     level: 'Advanced',
-//     instrument: 'Flute',
-//     Price: '3500',
-//     description: 'Master raagas and performances.',
-//     image: require('../../assets/insturments/theme/Flute.png'),
-//   },
-//   {
-//     id: '10',
-//     title: 'Tabla',
-//     level: 'Beginner',
-//     instrument: 'Tabla',
-//     Price: '999',
-//     description: 'Basic rhythm and hand placement.',
-//     image: require('../../assets/insturments/theme/Tabala.png'),
-//   },
-//   {
-//     id: '11',
-//     title: 'Tabla',
-//     level: 'Intermediate',
-//     instrument: 'Tabla',
-//     Price: '1500',
-//     description: 'Complex taals and compositions.',
-//     image: require('../../assets/insturments/theme/Tabala.png'),
-//   },
-//   {
-//     id: '12',
-//     title: 'Tabla',
-//     level: 'Advanced',
-//     instrument: 'Tabla',
-//     Price: '3500',
-//     description: 'Stage performance and improvisation.',
-//     image: require('../../assets/insturments/theme/Tabala.png'),
-//   },
-//   {
-//     id: '13',
-//     title: 'Harmonium',
-//     level: 'Beginner',
-//     instrument: 'Harmonium',
-//     Price: '999',
-//     description: 'Intro to keys and simple songs.',
-//     image: require('../../assets/insturments/theme/Harmonium.png'),
-//   },
-//   {
-//     id: '14',
-//     title: 'Harmonium',
-//     level: 'Intermediate',
-//     instrument: 'Harmonium',
-//     Price: '1500',
-//     description: 'Chords and melody building.',
-//     image: require('../../assets/insturments/theme/Harmonium.png'),
-//   },
-//   {
-//     id: '15',
-//     title: 'Harmonium',
-//     level: 'Advanced',
-//     instrument: 'Harmonium',
-//     Price: '3500',
-//     description: 'Stage-ready playing and raagas.',
-//     image: require('../../assets/insturments/theme/Harmonium.png'),
-//   },
-// ];
 
 const dummyCourses = [
   {
