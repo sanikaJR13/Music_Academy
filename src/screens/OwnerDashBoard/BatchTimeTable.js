@@ -7,6 +7,54 @@ import { useNavigation } from '@react-navigation/native';
 import styles from '../../styles/BatchTTScreenStyle';
 import AcademyBottomNavigation from '../../components/AcademyBottomNavigation';
 
+// const batchData = [
+//   {
+//     id: '1',
+//     image: require('../../assets/insturments/theme/GuitarFinal.png'),
+//     courseName: 'Guitar Basics',
+//     level: 'Beginner',
+//     type: 'Online',
+//     instrument: 'Guitar',
+//     date: '2025-07-6',
+//   },
+//   {
+//     id: '2',
+//     image: require('../../assets/insturments/theme/Piano.png'),
+//     courseName: 'Piano Mastery',
+//     level: 'Advanced',
+//     type: 'Offline',
+//     instrument: 'Piano',
+//     date: '2025-07-7',
+//   },
+//   {
+//     id: '3',
+//     image: require('../../assets/insturments/theme/Piano.png'),
+//     courseName: 'Piano Mastery',
+//     level: 'Advanced',
+//     type: 'Offline',
+//     instrument: 'Piano',
+//     date: '2025-06-30',
+//   },
+//   {
+//     id: '4',
+//     image: require('../../assets/insturments/theme/Piano.png'),
+//     courseName: 'Piano Mastery',
+//     level: 'Advanced',
+//     type: 'Offline',
+//     instrument: 'Piano',
+//     date: '2025-06-30',
+//   },
+//   {
+//     id: '5',
+//     image: require('../../assets/insturments/theme/Piano.png'),
+//     courseName: 'Piano Mastery',
+//     level: 'Advanced',
+//     type: 'Offline',
+//     instrument: 'Piano',
+//     date: '2025-06-30',
+//   },
+// ];
+
 const batchData = [
   {
     id: '1',
@@ -15,7 +63,7 @@ const batchData = [
     level: 'Beginner',
     type: 'Online',
     instrument: 'Guitar',
-    date: '2025-06-26',
+    date: '2025-07-01'
   },
   {
     id: '2',
@@ -24,35 +72,548 @@ const batchData = [
     level: 'Advanced',
     type: 'Offline',
     instrument: 'Piano',
-    date: '2025-06-26',
+    date: '2025-07-02'
   },
   {
     id: '3',
-    image: require('../../assets/insturments/theme/Piano.png'),
-    courseName: 'Piano Mastery',
-    level: 'Advanced',
-    type: 'Offline',
-    instrument: 'Piano',
-    date: '2025-06-30',
+    image: require('../../assets/insturments/theme/Tabala.png'),
+    courseName: 'Tabla Taal',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Tabla',
+    date: '2025-07-03'
   },
   {
     id: '4',
-    image: require('../../assets/insturments/theme/Piano.png'),
-    courseName: 'Piano Mastery',
-    level: 'Advanced',
+    image: require('../../assets/insturments/theme/Harmonium.png'),
+    courseName: 'Harmonium Ragas',
+    level: 'Beginner',
     type: 'Offline',
-    instrument: 'Piano',
-    date: '2025-06-30',
+    instrument: 'Harmonium',
+    date: '2025-07-04'
+  },
+  {  
+    id: '5',
+    image: require('../../assets/insturments/theme/Harmonium.png'),
+    courseName: 'Harmonium',
+    level: 'Advanced',
+    type: 'Online',
+    instrument: 'Keyboard',
+    date: '2025-07-05'
   },
   {
-    id: '5',
+    id: '6',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Piano',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Vocal',
+    date: '2025-07-06'
+  },
+  {
+    id: '7',
+    image: require('../../assets/insturments/theme/GuitarFinal.png'),
+    courseName: 'Guitar Basics',
+    level: 'Beginner',
+    type: 'Online',
+    instrument: 'Guitar',
+    date: '2025-07-07'
+  },
+  {
+    id: '8',
     image: require('../../assets/insturments/theme/Piano.png'),
     courseName: 'Piano Mastery',
     level: 'Advanced',
     type: 'Offline',
     instrument: 'Piano',
-    date: '2025-06-30',
+    date: '2025-07-08'
   },
+  {
+    id: '9',
+    image: require('../../assets/insturments/theme/Tabala.png'),
+    courseName: 'Tabla Taal',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Tabla',
+    date: '2025-07-09'
+  },
+  {
+    id: '10',
+    image: require('../../assets/insturments/theme/Harmonium.png'),
+    courseName: 'Harmonium Ragas',
+    level: 'Beginner',
+    type: 'Offline',
+    instrument: 'Harmonium',
+    date: '2025-07-10'
+  },
+  {
+    id: '11',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Keyboard Chords',
+    level: 'Advanced',
+    type: 'Online',
+    instrument: 'Keyboard',
+    date: '2025-07-11'
+  },
+  {
+    id: '12',
+    image: require('../../assets/insturments/theme/Flute.png'),
+    courseName: 'Vocal Sangeet',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Vocal',
+    date: '2025-07-12'
+  },
+  {
+    id: '13',
+    image: require('../../assets/insturments/theme/GuitarFinal.png'),
+    courseName: 'Guitar Basics',
+    level: 'Beginner',
+    type: 'Online',
+    instrument: 'Guitar',
+    date: '2025-07-13'
+  },
+  {
+    id: '14',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Piano Mastery',
+    level: 'Advanced',
+    type: 'Offline',
+    instrument: 'Piano',
+    date: '2025-07-14'
+  },
+  {
+    id: '15',
+    image: require('../../assets/insturments/theme/Tabala.png'),
+    courseName: 'Tabla Taal',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Tabla',
+    date: '2025-07-15'
+  },
+  {
+    id: '16',
+    image: require('../../assets/insturments/theme/Harmonium.png'),
+    courseName: 'Harmonium Ragas',
+    level: 'Beginner',
+    type: 'Offline',
+    instrument: 'Harmonium',
+    date: '2025-07-16'
+  },
+  {
+    id: '17',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Keyboard Chords',
+    level: 'Advanced',
+    type: 'Online',
+    instrument: 'Keyboard',
+    date: '2025-07-17'
+  },
+  {
+    id: '18',
+    image: require('../../assets/insturments/theme/Flute.png'),
+    courseName: 'Vocal Sangeet',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Vocal',
+    date: '2025-07-18'
+  },
+  {
+    id: '19',
+    image: require('../../assets/insturments/theme/GuitarFinal.png'),
+    courseName: 'Guitar Basics',
+    level: 'Beginner',
+    type: 'Online',
+    instrument: 'Guitar',
+    date: '2025-07-19'
+  },
+  {
+    id: '20',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Piano Mastery',
+    level: 'Advanced',
+    type: 'Offline',
+    instrument: 'Piano',
+    date: '2025-07-20'
+  },
+  {
+    id: '21',
+    image: require('../../assets/insturments/theme/Tabala.png'),
+    courseName: 'Tabla Taal',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Tabla',
+    date: '2025-07-21'
+  },
+  {
+    id: '22',
+    image: require('../../assets/insturments/theme/Harmonium.png'),
+    courseName: 'Harmonium Ragas',
+    level: 'Beginner',
+    type: 'Offline',
+    instrument: 'Harmonium',
+    date: '2025-07-22'
+  },
+  {
+    id: '23',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Keyboard Chords',
+    level: 'Advanced',
+    type: 'Online',
+    instrument: 'Keyboard',
+    date: '2025-07-23'
+  },
+  {
+    id: '24',
+    image: require('../../assets/insturments/theme/Flute.png'),
+    courseName: 'Vocal Sangeet',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Vocal',
+    date: '2025-07-24'
+  },
+  {
+    id: '25',
+    image: require('../../assets/insturments/theme/GuitarFinal.png'),
+    courseName: 'Guitar Basics',
+    level: 'Beginner',
+    type: 'Online',
+    instrument: 'Guitar',
+    date: '2025-07-25'
+  },
+  {
+    id: '26',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Piano Mastery',
+    level: 'Advanced',
+    type: 'Offline',
+    instrument: 'Piano',
+    date: '2025-07-26'
+  },
+  {
+    id: '27',
+    image: require('../../assets/insturments/theme/Tabala.png'),
+    courseName: 'Tabla Taal',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Tabla',
+    date: '2025-07-27'
+  },
+  {
+    id: '28',
+    image: require('../../assets/insturments/theme/Harmonium.png'),
+    courseName: 'Harmonium Ragas',
+    level: 'Beginner',
+    type: 'Offline',
+    instrument: 'Harmonium',
+    date: '2025-07-28'
+  },
+  {
+    id: '29',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Keyboard Chords',
+    level: 'Advanced',
+    type: 'Online',
+    instrument: 'Keyboard',
+    date: '2025-07-29'
+  },
+  {
+    id: '30',
+    image: require('../../assets/insturments/theme/Flute.png'),
+    courseName: 'Vocal Sangeet',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Vocal',
+    date: '2025-07-30'
+  },
+  {
+    id: '31',
+    image: require('../../assets/insturments/theme/GuitarFinal.png'),
+    courseName: 'Guitar Basics',
+    level: 'Beginner',
+    type: 'Online',
+    instrument: 'Guitar',
+    date: '2025-07-31'
+  },
+  {
+    id: '32',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Piano Mastery',
+    level: 'Advanced',
+    type: 'Offline',
+    instrument: 'Piano',
+    date: '2025-08-01'
+  },
+  {
+    id: '33',
+    image: require('../../assets/insturments/theme/Tabala.png'),
+    courseName: 'Tabla Taal',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Tabla',
+    date: '2025-08-02'
+  },
+  {
+    id: '34',
+    image: require('../../assets/insturments/theme/Harmonium.png'),
+    courseName: 'Harmonium Ragas',
+    level: 'Beginner',
+    type: 'Offline',
+    instrument: 'Harmonium',
+    date: '2025-08-03'
+  },
+  {
+    id: '35',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Keyboard Chords',
+    level: 'Advanced',
+    type: 'Online',
+    instrument: 'Keyboard',
+    date: '2025-08-04'
+  },
+  {
+    id: '36',
+    image: require('../../assets/insturments/theme/Flute.png'),
+    courseName: 'Vocal Sangeet',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Vocal',
+    date: '2025-08-05'
+  },
+  {
+    id: '37',
+    image: require('../../assets/insturments/theme/GuitarFinal.png'),
+    courseName: 'Guitar Basics',
+    level: 'Beginner',
+    type: 'Online',
+    instrument: 'Guitar',
+    date: '2025-08-06'
+  },
+  {
+    id: '38',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Piano Mastery',
+    level: 'Advanced',
+    type: 'Offline',
+    instrument: 'Piano',
+    date: '2025-08-07'
+  },
+  {
+    id: '39',
+    image: require('../../assets/insturments/theme/Tabala.png'),
+    courseName: 'Tabla Taal',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Tabla',
+    date: '2025-08-08'
+  },
+  {
+    id: '40',
+    image: require('../../assets/insturments/theme/Harmonium.png'),
+    courseName: 'Harmonium Ragas',
+    level: 'Beginner',
+    type: 'Offline',
+    instrument: 'Harmonium',
+    date: '2025-08-09'
+  },
+  {
+    id: '41',
+    image: require('../../assets/insturments/theme/Flute.png'),
+    courseName: 'Keyboard Chords',
+    level: 'Advanced',
+    type: 'Online',
+    instrument: 'Keyboard',
+    date: '2025-08-10'
+  },
+  {
+    id: '42',
+    image: require('../../assets/insturments/theme/Flute.png'),
+    courseName: 'Vocal Sangeet',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Vocal',
+    date: '2025-08-11'
+  },
+  {
+    id: '43',
+    image: require('../../assets/insturments/theme/GuitarFinal.png'),
+    courseName: 'Guitar Basics',
+    level: 'Beginner',
+    type: 'Online',
+    instrument: 'Guitar',
+    date: '2025-08-12'
+  },
+  {
+    id: '44',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Piano Mastery',
+    level: 'Advanced',
+    type: 'Offline',
+    instrument: 'Piano',
+    date: '2025-08-13'
+  },
+  {
+    id: '45',
+    image: require('../../assets/insturments/theme/Tabala.png'),
+    courseName: 'Tabla Taal',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Tabla',
+    date: '2025-08-14'
+  },
+  {
+    id: '46',
+    image: require('../../assets/insturments/theme/Harmonium.png'),
+    courseName: 'Harmonium Ragas',
+    level: 'Beginner',
+    type: 'Offline',
+    instrument: 'Harmonium',
+    date: '2025-08-15'
+  },
+  {
+    id: '47',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Keyboard Chords',
+    level: 'Advanced',
+    type: 'Online',
+    instrument: 'Keyboard',
+    date: '2025-08-16'
+  },
+  {
+    id: '48',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Vocal Sangeet',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Vocal',
+    date: '2025-08-17'
+  },
+  {
+    id: '49',
+    image: require('../../assets/insturments/theme/GuitarFinal.png'),
+    courseName: 'Guitar Basics',
+    level: 'Beginner',
+    type: 'Online',
+    instrument: 'Guitar',
+    date: '2025-08-18'
+  },
+  {
+    id: '50',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Piano Mastery',
+    level: 'Advanced',
+    type: 'Offline',
+    instrument: 'Piano',
+    date: '2025-08-19'
+  },
+  {
+    id: '51',
+    image: require('../../assets/insturments/theme/Tabala.png'),
+    courseName: 'Tabla Taal',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Tabla',
+    date: '2025-08-20'
+  },
+  {
+    id: '52',
+    image: require('../../assets/insturments/theme/Harmonium.png'),
+    courseName: 'Harmonium Ragas',
+    level: 'Beginner',
+    type: 'Offline',
+    instrument: 'Harmonium',
+    date: '2025-08-21'
+  },
+  {
+    id: '53',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Keyboard Chords',
+    level: 'Advanced',
+    type: 'Online',
+    instrument: 'Keyboard',
+    date: '2025-08-22'
+  },
+  {
+    id: '54',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Vocal Sangeet',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Vocal',
+    date: '2025-08-23'
+  },
+  {
+    id: '55',
+    image: require('../../assets/insturments/theme/GuitarFinal.png'),
+    courseName: 'Guitar Basics',
+    level: 'Beginner',
+    type: 'Online',
+    instrument: 'Guitar',
+    date: '2025-08-24'
+  },
+  {
+    id: '56',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Piano Mastery',
+    level: 'Advanced',
+    type: 'Offline',
+    instrument: 'Piano',
+    date: '2025-08-25'
+  },
+  {
+    id: '57',
+    image: require('../../assets/insturments/theme/Tabala.png'),
+    courseName: 'Tabla Taal',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Tabla',
+    date: '2025-08-26'
+  },
+  {
+    id: '58',
+    image: require('../../assets/insturments/theme/Harmonium.png'),
+    courseName: 'Harmonium Ragas',
+    level: 'Beginner',
+    type: 'Offline',
+    instrument: 'Harmonium',
+    date: '2025-08-27'
+  },
+  {
+    id: '59',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Keyboard Chords',
+    level: 'Advanced',
+    type: 'Online',
+    instrument: 'Keyboard',
+    date: '2025-08-28'
+  },
+  {
+    id: '60',
+    image: require('../../assets/insturments/theme/Flute.png'),
+    courseName: 'Vocal Sangeet',
+    level: 'Intermediate',
+    type: 'Hybrid',
+    instrument: 'Vocal',
+    date: '2025-08-29'
+  },
+  {
+    id: '61',
+    image: require('../../assets/insturments/theme/GuitarFinal.png'),
+    courseName: 'Guitar Basics',
+    level: 'Beginner',
+    type: 'Online',
+    instrument: 'Guitar',
+    date: '2025-08-30'
+  },
+  {
+    id: '62',
+    image: require('../../assets/insturments/theme/Piano.png'),
+    courseName: 'Piano Mastery',
+    level: 'Advanced',
+    type: 'Offline',
+    instrument: 'Piano',
+    date: '2025-08-31'
+  }
 ];
 
 export default function BatchTimetableScreen() {

@@ -43,14 +43,6 @@ export default function LoginScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {/* <ImageBackground
-          source={require('../assets/loginbackgroundimage.png')}
-          style={styles.background}
-          resizeMode="cover"
-      
-      > */}
-
-      {/* <View style={styles.overlay}> */}
       <Animated.Image
         source={require('../assets/logowithoutbackground.png')}
         style={[styles.logo, { transform: [{ scale: logoScale }] }]}

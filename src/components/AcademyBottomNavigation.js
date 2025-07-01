@@ -13,7 +13,7 @@ const AcademyBottomNavigation = () => {
     { name: 'Home', icon: 'home', screen: 'AcademyProfile' },
     { name: 'Courses', icon: 'book', screen: 'AcademyCoursesScreen' },
     { name: 'TimeTable', icon: 'calendar-alt', screen: 'BatchTimeTable' },
-    { name: 'Students', icon: 'users', screen: 'Students' },
+    { name: 'Students', icon: 'users', screen: 'AcademyProfile' },
   ];
 
   return (

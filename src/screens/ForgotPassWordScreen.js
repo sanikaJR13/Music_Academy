@@ -17,7 +17,6 @@ export default function ForgotPasswordScreen({ navigation }) {
       return;
     }
 
-    // TODO: Password reset logic (API call, etc.)
     Alert.alert(
       'Reset Link Sent',
       'Check your email for instructions to reset your password.'

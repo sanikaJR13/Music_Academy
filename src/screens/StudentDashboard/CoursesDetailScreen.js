@@ -12,7 +12,7 @@ import BottomNavigation from '../../components/BottomNavigation';
 
 const CourseDetailScreen = ({ route, navigation }) => {
   const { course } = route.params;
-  const [step, setStep] = useState('detail'); // 'detail' | 'payment' | 'success'
+  const [step, setStep] = useState('detail'); 
 
   return (
     <View style={styles.detailContainer}>
@@ -47,12 +47,12 @@ const CourseDetailScreen = ({ route, navigation }) => {
 
               <Text style={styles.detailDescription}>{course.description}</Text>
               <View paddingTop="25">
-              <TouchableOpacity
-                style={styles.detailEnrollBtn}
-                onPress={() => setStep('payment')}
-              >
-                <Text style={styles.detailEnrollText}>Enroll Now</Text>
-              </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.detailEnrollBtn}
+                  onPress={() => setStep('payment')}
+                >
+                  <Text style={styles.detailEnrollText}>Enroll Now</Text>
+                </TouchableOpacity>
               </View>
             </>
           )}
@@ -88,20 +88,14 @@ const CourseDetailScreen = ({ route, navigation }) => {
             </>
           )}
           {step === 'welcome' && (
-  <View style={styles.PaymentandENrollment}>
-    <Text style={styles.successIcon}>🎵</Text>
-    <Text style={styles.successTitle}>Welcome to the Music Academy!!</Text>
-    <Text style={styles.successDescription}>
-      Now you can start your learning journey with us. Dive into your courses and enjoy music like never before!
-    </Text>
-    {/* <TouchableOpacity
-      style={styles.detailEnrollBtn}
-      onPress={() => navigation.navigate('Home')}
-    >
-      <Text style={styles.detailEnrollText}>Go to Home</Text>
-    </TouchableOpacity> */}
-  </View>
-)}
+            <View style={styles.PaymentandENrollment}>
+              <Text style={styles.successIcon}>🎵</Text>
+              <Text style={styles.successTitle}>Welcome to the Music Academy!!</Text>
+              <Text style={styles.successDescription}>
+                Now you can start your learning journey with us. Dive into your courses and enjoy music like never before!
+              </Text>
+            </View>
+          )}
 
         </View>
       </ScrollView>

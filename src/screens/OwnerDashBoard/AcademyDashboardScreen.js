@@ -1,240 +1,299 @@
-import React from 'react';
-import { View, Text, FlatList, TouchableOpacity, ScrollView } from 'react-native';
+
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import styles from '../../styles/universalstyles';
-//import styles from '../OwnerDashBoard/Style/AcademyStyles';
+import styles from '../../styles/AcademyDashboardStyle';
 import AcademyBottomNavigation from '../../components/AcademyBottomNavigation';
 
-// const dashboardOptions = [
-//   { title: 'Students', icon: 'users', screen: 'Students' },
-//   { title: 'Courses', icon: 'book', screen: 'AcademyCoursesScreen' },
-//   { title: 'Batches', icon: 'calendar-alt', screen: 'BatchTimeTable' },
-//   { title: 'Profile', icon: 'user-circle', screen: 'AcademyProfile' },
-// ];
+const dummyCourses = [
+  {
+    id: '1',
+    title: 'Guitar',
+    level: 'Beginner',
+    instrument: 'Guitar',
+    Price: '999',
+    description:
+      'Start your guitar journey with easy lessons focused on basic chords and rhythm. Learn how to hold and tune the guitar correctly. Simple strumming patterns and beginner-friendly songs will build your confidence. This course requires no prior experience and is perfect for absolute beginners.',
+    image: require('../../assets/insturments/theme/GuitarFinal.png'),
+  },
+  {
+    id: '2',
+    title: 'Guitar',
+    level: 'Intermediate',
+    instrument: 'Guitar',
+    Price: '1500',
+    description:
+      'Take your guitar skills to the next level with this intermediate course. Learn fingerstyle techniques, power chords, and barre chords. Explore rhythm variations, chord transitions, and improvisation. Ideal for students who have mastered the basics and are ready for more complexity.',
+    image: require('../../assets/insturments/theme/GuitarFinal.png'),
+  },
+  {
+    id: '3',
+    title: 'Guitar',
+    level: 'Advanced',
+    instrument: 'Guitar',
+    Price: '3500',
+    description:
+      'Master the art of guitar playing with advanced techniques and theory. Focus on lead guitar skills, soloing, scales, and advanced improvisation. Study complex chord progressions and music composition. This course prepares you for performances and studio recordings.',
+    image: require('../../assets/insturments/theme/GuitarFinal.png'),
+  },
+  {
+    id: '4',
+    title: 'Piano',
+    level: 'Beginner',
+    instrument: 'Piano',
+    Price: '999',
+    description:
+      'Discover the magic of piano with foundational lessons for beginners. Learn hand positioning, basic scales, and simple melodies. Practice both hands coordination with familiar tunes. A perfect start for young learners or adult beginners looking to explore piano.',
+    image: require('../../assets/insturments/theme/Piano.png'),
+  },
+  {
+    id: '5',
+    title: 'Piano',
+    level: 'Intermediate',
+    instrument: 'Piano',
+    Price: '1500',
+    description:
+      'Enhance your piano skills by focusing on melody, harmony, and chord progressions. Learn to play more complex pieces and improve your sight-reading. Develop both left and right hand coordination with challenging exercises. This course bridges the gap between beginner and advanced levels.',
+    image: require('../../assets/insturments/theme/Piano.png'),
+  },
+  {
+    id: '6',
+    title: 'Piano',
+    level: 'Advanced',
+    instrument: 'Piano',
+    Price: '3500',
+    description:
+      'Delve deep into classical and jazz piano techniques. Study advanced music theory, improvisation, and composition. Perform pieces from renowned composers and explore personal expression through music. Ideal for aspiring professional pianists and performers.',
+    image: require('../../assets/insturments/theme/Piano.png'),
+  },
+  {
+    id: '7',
+    title: 'Flute',
+    level: 'Beginner',
+    instrument: 'Flute',
+    Price: '999',
+    description:
+      'Learn the basics of playing the flute with easy exercises and songs. Understand correct posture, breath control, and simple fingering. Build a solid foundation in tone production and rhythm. This course is designed to introduce beginners to the beauty of flute playing.',
+    image: require('../../assets/insturments/theme/Flute.png'),
+  },
+  {
+    id: '8',
+    title: 'Flute',
+    level: 'Intermediate',
+    instrument: 'Flute',
+    Price: '1500',
+    description:
+      'Improve your flute skills with advanced breathing techniques and fingering patterns. Learn classical compositions and Indian ragas. Focus on sound clarity, speed, and vibrato control. Perfect for those who have basic flute knowledge and want to go deeper.',
+    image: require('../../assets/insturments/theme/Flute.png'),
+  },
+  {
+    id: '9',
+    title: 'Flute',
+    level: 'Advanced',
+    instrument: 'Flute',
+    Price: '3500',
+    description:
+      'Master the nuances of flute performance with a focus on raagas, ornamentation, and improvisation. Learn to perform solo and ensemble pieces with confidence. Develop expressive techniques and stylistic interpretations. Aimed at serious students preparing for concerts or competitions.',
+    image: require('../../assets/insturments/theme/Flute.png'),
+  },
+  {
+    id: '10',
+    title: 'Tabla',
+    level: 'Beginner',
+    instrument: 'Tabla',
+    Price: '999',
+    description:
+      'Introduce yourself to the world of rhythm with beginner tabla lessons. Learn correct hand placement, basic bols, and simple taals. Develop your timing and coordination through regular practice. This course makes learning tabla fun and accessible for newcomers.',
+    image: require('../../assets/insturments/theme/Tabala.png'),
+  },
+  {
+    id: '11',
+    title: 'Tabla',
+    level: 'Intermediate',
+    instrument: 'Tabla',
+    Price: '1500',
+    description:
+      'Explore complex taals, compositions, and variations in tabla playing. Improve hand speed, clarity, and rhythmic cycles. Practice classical kaidas, relas, and tukras. A strong step forward for learners with basic tabla knowledge.',
+    image: require('../../assets/insturments/theme/Tabala.png'),
+  },
+  {
+    id: '12',
+    title: 'Tabla',
+    level: 'Advanced',
+    instrument: 'Tabla',
+    Price: '3500',
+    description:
+      'Achieve professional proficiency with advanced tabla compositions and improvisation. Learn accompaniment techniques for vocals and instruments. Gain command over intricate rhythm patterns and performance skills. Ideal for students preparing for stage and exams.',
+    image: require('../../assets/insturments/theme/Tabala.png'),
+  },
+  {
+    id: '13',
+    title: 'Harmonium',
+    level: 'Beginner',
+    instrument: 'Harmonium',
+    Price: '999',
+    description:
+      'Get started with harmonium by learning key basics, scales, and simple tunes. Practice finger placement and playing with both hands. This beginner course is perfect for those interested in Indian classical or devotional music. No prior music knowledge needed.',
+    image: require('../../assets/insturments/theme/Harmonium.png'),
+  },
+  {
+    id: '14',
+    title: 'Harmonium',
+    level: 'Intermediate',
+    instrument: 'Harmonium',
+    Price: '1500',
+    description:
+      'Learn to play chords, ragas, and accompaniment styles. Improve hand coordination and develop musical expression. Understand the role of harmonium in solo and group settings. This course helps build a strong musical foundation.',
+    image: require('../../assets/insturments/theme/Harmonium.png'),
+  },
+  {
+    id: '15',
+    title: 'Harmonium',
+    level: 'Advanced',
+    instrument: 'Harmonium',
+    Price: '3500',
+    description:
+      'Advance your harmonium skills by mastering raagas, compositions, and live performance techniques. Dive into advanced theory and improvisation. Perfect for aspiring performers and music teachers. This course builds confidence and artistry for the stage.',
+    image: require('../../assets/insturments/theme/Harmonium.png'),
+  },
+];
 
- const dashboardOptions = [
-    { title: 'Home', icon: 'home', screen: 'AcademyProfile' },
-    { title: 'Courses', icon: 'book', screen: 'AcademyCoursesScreen' },
-    { title: 'TimeTable', icon: 'calendar-alt', screen: 'BatchTimeTable' },
-    { title: 'Students', icon: 'users', screen: 'Students' },
-  ];
+const instruments = [
+  { id: '1', name: 'Guitar', icon: 'guitar' },
+  { id: '2', name: 'Piano', icon: 'music' },
+  { id: '3', name: 'Flute', icon: 'music' },
+  { id: '4', name: 'Tabla', icon: 'drum' },
+  { id: '5', name: 'Harmonium', icon: 'keyboard' },
+];
 
-const AcademyDashboardScreen = ({ navigation }) => {
-  const renderItem = ({ item }) => (
-    <TouchableOpacity
-      style={styles.dashboardCard}
-      onPress={() => navigation.navigate(item.screen)}
-    >
-      <Icon name={item.icon} size={28} color="#1E3A8A" />
-      <Text style={styles.dashboardText}>{item.title}</Text>
-    </TouchableOpacity>
+const dashboardOptions = [
+  { title: 'Courses', icon: 'book', screen: 'AcademyCoursesScreen' },
+  { title: 'TimeTable', icon: 'calendar-alt', screen: 'BatchTimeTable' },
+  { title: 'Students', icon: 'users', screen: 'AcademyProfile' },
+];
+
+const AcademyDashboard = ({ navigation }) => {
+  const [selectedInstrument, setSelectedInstrument] = useState(null);
+
+  const handleInstrumentPress = (name) => {
+    setSelectedInstrument((prev) => (prev === name ? null : name));
+  };
+
+  const filteredCourses = dummyCourses.filter(
+    (course) => course.instrument === selectedInstrument
   );
 
   return (
-    <View style={{ flex: 1 }}>
-      {/* 🔷 Header */}
-      <View style={styles.customHeader}>
-        <TouchableOpacity onPress={() => console.log('Menu pressed')}>
-          <Icon name="bars" size={20} color="#FFFFFF" paddingHorizontal="15"/>
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>Music Academy</Text>
-        <TouchableOpacity onPress={() => console.log('Notifications')}>
-          <Icon name="bell" size={20} color="#FFFFFF" paddingHorizontal="15"/>
-        </TouchableOpacity>
-      </View>
+    <>
+      <ScrollView style={styles.container}>
+        <View style={styles.customHeader}>
+          <TouchableOpacity style={styles.headerIcon}>
+            <Icon name="bars" size={20} color="#FFFFFF" />
+          </TouchableOpacity>
+          <Text style={styles.headerTitle}>Music Academy</Text>
+          <TouchableOpacity style={styles.headerIcon}>
+            <Icon name="bell" size={20} color="#FFFFFF" />
+          </TouchableOpacity>
+        </View>
 
-      {/* 🔷 Scrollable Content */}
-      <ScrollView
-        contentContainerStyle={{
-          paddingBottom: 100, // to make space for sticky bottom bar
-          paddingHorizontal: 16,
-        }}
-        showsVerticalScrollIndicator={false}
-      >
-        <FlatList
-          data={dashboardOptions}
-          numColumns={2}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.title}
-          scrollEnabled={false}
-          contentContainerStyle={styles.dashboardGrid}
-        />
+        <View style={styles.header}>
+          <Image
+            source={require('../../assets/logo.png')}
+            style={styles.profileImage}
+          />
+          <TouchableOpacity style={styles.editIcon}>
+            <Icon name="pen" size={14} color="#1E3A8A" />
+          </TouchableOpacity>
+          <Text style={styles.academyName}>Beats Academy</Text>
+        </View>
+
+        <View style={styles.dashboardRow}>
+          {dashboardOptions.map((item, index) => (
+            <TouchableOpacity
+              key={index}
+              style={styles.dashboardCard}
+              onPress={() => navigation.navigate(item.screen)}
+            >
+              <Icon name={item.icon} size={20} color="#1E3A8A" />
+              <Text style={styles.dashboardText}>{item.title}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+
+        <View style={styles.statsRow}>
+          <View style={styles.statCard}>
+            <Icon name="user" size={24} color="#1E3A8A" />
+            <Text style={styles.statValue}>450</Text>
+            <Text>Total Students</Text>
+          </View>
+          <View style={styles.statCard}>
+            <Icon name="book" size={24} color="#1E3A8A" />
+            <Text style={styles.statValue}>15</Text>
+            <Text>Total Courses</Text>
+          </View>
+          <View style={styles.statCard}>
+            <Icon name="music" size={24} color="#1E3A8A" />
+            <Text style={styles.statValue}>5</Text>
+            <Text>Instruments Taught</Text>
+          </View>
+        </View>
+
+        <Text style={styles.sectionTitle}>Instruments Taught</Text>
+        <View style={styles.instrumentRow}>
+          {instruments.map((item) => (
+            <TouchableOpacity
+              key={item.id}
+              style={[
+                styles.instrument,
+                selectedInstrument === item.name && styles.selectedInstrument,
+              ]}
+              onPress={() => handleInstrumentPress(item.name)}
+            >
+              <Icon name={item.icon} size={26} color="#1E3A8A" />
+              <Text style={styles.instrumentName}>{item.name}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+
+        {selectedInstrument && (
+          <>
+            <Text style={styles.sectionTitle}>
+              {selectedInstrument} Courses
+            </Text>
+            <View style={styles.courseGrid}>
+              {filteredCourses.map((item) => (
+                <View key={item.id} style={styles.card}>
+                  <Image
+                    source={item.image}
+                    style={styles.cardImage}
+                    resizeMode="contain"
+                  />
+                  <Text style={styles.cardTitle}>{item.instrument}</Text>
+                  <Text style={styles.cardLevel}>{item.level}</Text>
+                  <Text style={styles.cardPrice}>₹{item.Price}</Text>
+                  <TouchableOpacity
+                    style={styles.cardButton}
+                    onPress={() =>
+                      navigation.navigate('AcademyCourseDetailScreen', { course: item })
+                    }
+                  >
+                    <Text style={styles.cardButtonText}>View Details</Text>
+                  </TouchableOpacity>
+                </View>
+              ))}
+            </View>
+          </>
+        )}
       </ScrollView>
-
-      {/* 🔽 Sticky Bottom Bar */}
-      <View style={[styles.bottomBar, {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        backgroundColor: '#FFFFFF',
-        borderTopWidth: 1,
-        borderColor: '#E5E7EB',
-        paddingVertical: 10,
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-      }]}>
       <AcademyBottomNavigation />
-
-      </View>
-    </View>
+    </>
   );
 };
 
-export default AcademyDashboardScreen;
-
-
-
-
-// import React from 'react';
-// import { View, Text, FlatList, TouchableOpacity, ScrollView } from 'react-native';
-// import Icon from 'react-native-vector-icons/FontAwesome5';
-// import styles from '../../styles/universalstyles';
-
-// const dashboardOptions = [
-//   { title: 'Students', icon: 'users', screen: 'Students' },
-//   { title: 'Courses', icon: 'book', screen: 'Courses' },
-//   { title: 'Batches', icon: 'calendar-alt', screen: 'Batch' },
-//   { title: 'Profile', icon: 'user-circle', screen: 'Profile' },
-// ];
-
-// const AcademyDashboardScreen = ({ navigation }) => {
-//   const renderItem = ({ item }) => (
-//     <TouchableOpacity
-//       style={styles.dashboardCard}
-//       onPress={() => navigation.navigate(item.screen)}
-//     >
-//       <Icon name={item.icon} size={28} color="#1E3A8A" />
-//       <Text style={styles.dashboardText}>{item.title}</Text>
-//     </TouchableOpacity>
-//   );
-
-//   return (
-//     <View style={styles.dashboardContainer}>
-//       {/* 🔷 Custom Header */}
-//       <View style={styles.customHeader}>
-//         <TouchableOpacity onPress={() => console.log('Menu pressed')}>
-//           <Icon name="bars" size={20} color="#FFFFFF" />
-//         </TouchableOpacity>
-//         <Text style={styles.headerTitle}>Music Academy</Text>
-//         <TouchableOpacity onPress={() => console.log('Notifications')}>
-//           <Icon name="bell" size={20} color="#FFFFFF" />
-//         </TouchableOpacity>
-//       </View>
-
-//       {/* 🔷 Scrollable Dashboard Content */}
-//       <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
-//         <Text style={styles.dashboardHeading}>Academy Dashboard</Text>
-//         <FlatList
-//           data={dashboardOptions}
-//           numColumns={2}
-//           renderItem={renderItem}
-//           keyExtractor={(item) => item.title}
-//           scrollEnabled={false} // ✅ important to avoid nested scrolling
-//           contentContainerStyle={styles.dashboardGrid}
-//         />
-//       </ScrollView>
-
-//       {/* 🔽 Bottom Navigation */}
-//       <View style={styles.bottomBar}>
-//         <TouchableOpacity onPress={() => navigation.navigate('AcademyDashBoard')}>
-//           <Icon name="home" size={22} color="#1E3A8A" />
-//         </TouchableOpacity>
-//         <TouchableOpacity onPress={() => navigation.navigate('AcademyProfile')}>
-//           <Icon name="user" size={22} color="#1E3A8A" />
-//         </TouchableOpacity>
-//         <TouchableOpacity onPress={() => navigation.navigate('BatchTimeTable')}>
-//           <Icon name="calendar-alt" size={22} color="#1E3A8A" />
-//         </TouchableOpacity>
-//         <TouchableOpacity onPress={() => navigation.navigate('AcademyCoursesScreen')}>
-//           <Icon name="book" size={22} color="#1E3A8A" />
-//         </TouchableOpacity>
-//         <TouchableOpacity onPress={() => navigation.navigate('Student')}>
-//           <Icon name="user-graduate" size={22} color="#1E3A8A" />
-//         </TouchableOpacity>
-//         <TouchableOpacity onPress={() => navigation.navigate('LogOut')}>
-//           <Icon name="sign-out-alt" size={22} color="#F97316" />
-//         </TouchableOpacity>
-//       </View>
-//     </View>
-//   );
-// };
-
-// export default AcademyDashboardScreen;
-
-
-
-
-// // import React from 'react';
-// // import { View, Text, FlatList, TouchableOpacity } from 'react-native';
-// // import Icon from 'react-native-vector-icons/FontAwesome5';
-// // import styles from '../../styles/universalstyles';
-
-// // const dashboardOptions = [
-// //   { title: 'Students', icon: 'users', screen: 'Students' },
-// //   { title: 'Courses', icon: 'book', screen: 'Courses' },
-// //   { title: 'Batches', icon: 'calendar-alt', screen: 'Batch' },
-// //   { title: 'Profile', icon: 'user-circle', screen: 'Profile' },
-
-// // ];
-
-// // const AcademyDashboardScreen = ({ navigation }) => {
-// //   const renderItem = ({ item }) => (
-// //     <TouchableOpacity
-// //       style={styles.dashboardCard}
-// //       onPress={() => navigation.navigate(item.screen)}
-// //     >
-// //       <Icon name={item.icon} size={28} color="#1E3A8A" />
-// //       <Text style={styles.dashboardText}>{item.title}</Text>
-// //     </TouchableOpacity>
-// //   );
-
-// //   return (
-// //     <View style={styles.dashboardContainer}>
-// //       {/* 🔷 Custom Header */}
-// //       <View style={styles.customHeader}>
-// //         <TouchableOpacity onPress={() => console.log('Menu pressed')}>
-// //           <Icon name="bars" size={20} color="#FFFFFF" />
-// //         </TouchableOpacity>
-// //         <Text style={styles.headerTitle}>Music Academy</Text>
-// //         <TouchableOpacity onPress={() => console.log('Notifications')}>
-// //           <Icon name="bell" size={20} color="#FFFFFF" />
-// //         </TouchableOpacity>
-// //       </View>
-
-// //       {/* 🔷 Dashboard Content */}
-// //       <Text style={styles.dashboardHeading}>Academy Dashboard</Text>
-// //       <FlatList
-// //         data={dashboardOptions}
-// //         numColumns={2}
-// //         renderItem={renderItem}
-// //         keyExtractor={(item) => item.title}
-// //         contentContainerStyle={styles.dashboardGrid}
-// //       />
-
-// //       {/* 🔽 Bottom Navigation */}
-// //       <View style={styles.bottomBar}>
-// //         <TouchableOpacity onPress={() => navigation.navigate('AcademyDashBoard')}>
-// //           <Icon name="home" size={22} color="#1E3A8A" />
-// //         </TouchableOpacity>
-// //         <TouchableOpacity onPress={() => navigation.navigate('AcademyProfile')}>
-// //           <Icon name="user" size={22} color="#1E3A8A" />
-// //         </TouchableOpacity>
-// //         <TouchableOpacity onPress={() => navigation.navigate('BatchTimeTable')}>
-// //           <Icon name="calendar-alt" size={22} color="#1E3A8A" />
-// //         </TouchableOpacity>
-// //         <TouchableOpacity onPress={() => navigation.navigate('AcademyCoursesScreen')}>
-// //           <Icon name="book" size={22} color="#1E3A8A" />
-// //         </TouchableOpacity>
-// //          <TouchableOpacity onPress={() => navigation.navigate('Student')}>
-// //     <Icon name="user-graduate" size={22} color="#1E3A8A" />
-// //   </TouchableOpacity>
-// //         <TouchableOpacity onPress={() => navigation.navigate('LogOut')}>
-// //           <Icon name="sign-out-alt" size={22} color="#F97316" />
-// //         </TouchableOpacity>
-// //       </View>
-// //     </View>
-// //   );
-// // };
-
-// // export default AcademyDashboardScreen;
+export default AcademyDashboard;

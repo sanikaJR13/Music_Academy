@@ -1,5 +1,4 @@
 // 📁 AcademyCoursesScreen.js
-
 import React, { useState } from 'react';
 import {
   View,
@@ -18,20 +17,6 @@ import styles from '../../styles/AcademyStyles';
 import AcademyBottomNavigation from '../../components/AcademyBottomNavigation';
 
 const dummyCourses = [
-  // 🎸 Guitar, 🎹 Piano, 🎼 Flute, 🪘 Tabla, 🎶 Harmonium
-  // {
-  //   id: '1',
-  //   title: 'Guitar',
-  //   level: 'Beginner',
-  //   instrument: 'Guitar',
-  //   Price: '999',
-  //   description:
-  //     'Start your guitar journey with easy lessons focused on basic chords and rhythm...',
-  //   image: require('../../assets/insturments/theme/GuitarFinal.png'),
-  // },
-  // // Add remaining dummyCourses as in original (omitted for brevity)
-  // // ...
-
   {
     id: '1',
     title: 'Guitar',
