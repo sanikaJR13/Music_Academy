@@ -8,7 +8,7 @@ import styles from '../styles/BottomNavigationStyles';
 const BottomNavigation = () => {
   const navigation = useNavigation();
   const route = useRoute();
-
+  
   const tabs = [
     { name: 'Home', icon: 'home', screen: 'StudentDashBoard' },
     { name: 'Courses', icon: 'book-open', screen: 'Courses' },

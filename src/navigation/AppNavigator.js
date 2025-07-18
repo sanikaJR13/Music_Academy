@@ -12,7 +12,6 @@ import CourseDetailScreen from '../screens/StudentDashboard/CoursesDetailScreen'
 import ProfileStudent from '../screens/StudentDashboard/ProfileScreen';
 import LogoutScreen from '../screens/StudentDashboard/LogoutScreen';
 import ChatSection from '../screens/StudentDashboard/ChatSection';
-
 import AcademyCoursesScreen from '../screens/OwnerDashBoard/AcademyCoursesScreen';
 import AcademyProfile from '../screens/OwnerDashBoard/ProfileScreen';
 import BatchTimeTable from '../screens/OwnerDashBoard/BatchTimeTable';

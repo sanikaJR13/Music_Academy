@@ -4,9 +4,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  Image,
   Animated,
-  ImageBackground,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from '../styles/universalstyles';
@@ -118,7 +116,5 @@ export default function LoginScreen({ navigation }) {
         </Text>
       </View>
       </View>
-      // </ImageBackground>
-    // </View>
   );
 }

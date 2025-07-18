@@ -11,8 +11,6 @@ import styles from '../../styles/AcademyDashboardStyle';
 import AcademyBottomNavigation from '../../components/AcademyBottomNavigation';
 import { useNavigation } from '@react-navigation/native';
 
-
-
 const sampleStudents = [
   {
     id: '1',

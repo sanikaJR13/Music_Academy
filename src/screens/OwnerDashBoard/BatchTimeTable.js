@@ -7,54 +7,6 @@ import { useNavigation } from '@react-navigation/native';
 import styles from '../../styles/BatchTTScreenStyle';
 import AcademyBottomNavigation from '../../components/AcademyBottomNavigation';
 
-// const batchData = [
-//   {
-//     id: '1',
-//     image: require('../../assets/insturments/theme/GuitarFinal.png'),
-//     courseName: 'Guitar Basics',
-//     level: 'Beginner',
-//     type: 'Online',
-//     instrument: 'Guitar',
-//     date: '2025-07-6',
-//   },
-//   {
-//     id: '2',
-//     image: require('../../assets/insturments/theme/Piano.png'),
-//     courseName: 'Piano Mastery',
-//     level: 'Advanced',
-//     type: 'Offline',
-//     instrument: 'Piano',
-//     date: '2025-07-7',
-//   },
-//   {
-//     id: '3',
-//     image: require('../../assets/insturments/theme/Piano.png'),
-//     courseName: 'Piano Mastery',
-//     level: 'Advanced',
-//     type: 'Offline',
-//     instrument: 'Piano',
-//     date: '2025-06-30',
-//   },
-//   {
-//     id: '4',
-//     image: require('../../assets/insturments/theme/Piano.png'),
-//     courseName: 'Piano Mastery',
-//     level: 'Advanced',
-//     type: 'Offline',
-//     instrument: 'Piano',
-//     date: '2025-06-30',
-//   },
-//   {
-//     id: '5',
-//     image: require('../../assets/insturments/theme/Piano.png'),
-//     courseName: 'Piano Mastery',
-//     level: 'Advanced',
-//     type: 'Offline',
-//     instrument: 'Piano',
-//     date: '2025-06-30',
-//   },
-// ];
-
 const batchData = [
   {
     id: '1',

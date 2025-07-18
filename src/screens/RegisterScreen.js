@@ -15,13 +15,11 @@ import styles from '../styles/universalstyles';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 export default function RegisterScreen({ navigation }) {
-
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [contact, setContact] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-
     const [instrumentOpen, setInstrumentOpen] = useState(false);
     const [instrument, setInstrument] = useState(null);
     const [instrumentItems, setInstrumentItems] = useState([
@@ -67,7 +65,6 @@ export default function RegisterScreen({ navigation }) {
         }
     }, [typeOpen]);
 
-
     const handleRegister = () => {
         if (
             !fullName || !email || !contact || !password || !confirmPassword ||
@@ -80,7 +77,6 @@ export default function RegisterScreen({ navigation }) {
             Alert.alert('Passwords do not match.');
             return;
         }
-
         Alert.alert('Registered successfully!');
         // navigation.navigate('Login');
         navigation.navigate('Profile', {
@@ -99,9 +95,6 @@ export default function RegisterScreen({ navigation }) {
             contentContainerStyle={styles.scrollContainer}
             keyboardShouldPersistTaps="handled"
         >
-
-
-
             <KeyboardAvoidingView
                 style={styles.rcontainer}
                 behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
@@ -216,8 +209,6 @@ export default function RegisterScreen({ navigation }) {
                     />
                 </View>
 
-
-
                 <TouchableOpacity style={styles.loginButton} onPress={handleRegister}>
                     <Text style={styles.loginButtonText}>SUBMIT</Text>
                 </TouchableOpacity>
@@ -230,9 +221,6 @@ export default function RegisterScreen({ navigation }) {
                         </Text>
                     </Text>
                 </View>
-
-
-
             </KeyboardAvoidingView >
         </KeyboardAwareScrollView>
     );

@@ -36,7 +36,7 @@ export default function SplashScreen({ navigation }) {
       />
       <Text style={styles.splashTagline}>Learn. Teach. Connect.</Text>
       <Animated.Text style={[styles.splashNote, { transform: [{ translateY: bounceValue }] }]}>
-        🎵
+        🎵 🎵 🎵
       </Animated.Text>
     </View>
   );
